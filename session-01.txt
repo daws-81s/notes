@@ -1,0 +1,221 @@
+What is DevOps?
+
+School management system
+-------------------------
+50 year back
+system = stakeholders == students, teachers, parents
+
+100 --> 20 or 30% pass percentage
+
+only one Final exam
+-------------------
+students --> they are not serious from DAY-1
+teachers --> they are not serious to complete from DAY-1
+parents --> they starts worry about their kids
+
+pass percentage is very less
+
+
+we need to change the process
+
+30 year back
+------------------------
+unit tests, quarterly, half yearly, pre final
+
+unit test-1 --> 1.5 month
+
+students --> they are not serious from DAY-1, atleast they are serious from 1week before
+teachers --> they are serious from DAY-1 to complete syllabus
+parents --> they are serious from DAY-1
+
+30% is pass in unit-1
+
+parents, teachers starts understanding the student behaviour
+
+unit test-2 --> 31%
+unit test-3
+quarterly
+half yearly
+prefinal
+final --> 80%
+
+10 years back
+---------------
+slip test
+300 days
+200 exams
+
+99% pass percentage
+
+SDLC --> Software development lifecycle
+
+1. Requirements
+2. Planning
+3. Design
+4. Developing
+5. Deployment
+6. Testing
+7. Maintainance
+
+Waterfall Model
+------------------
+fathers generation == Waterfall model
+
+2 years time to complete
+
+stakeholders = customers, developers, testers, managers, end users, etc.
+
+developers --> are they serious from DAY-1
+testers --> no they are not serious
+clients --> they are worried from DAY-1
+
+after 1 year they got seriousness
+
+developers develop it in 6 months
+deploy the application --> build and release in DEV
+
+testers starting testing --> 100 defects
+some are invalid --> 20 invalid defects
+
+after 2 years, they release something --> maruti 800
+
+
+Agile
+-------------------------
+Sprints --> Installment based based deliveries
+
+modules -->
+User management --> 1 months
+	signup
+	login
+	forgot password
+	change password
+
+product management
+	list the products
+	prices
+cart
+	add to cart
+shipping
+	adding address
+payment
+order management
+
+User management --> 1 months
+15 days --> development
+15 days --> testing and deployment
+
+testing --> 30 defects
+10 invalid defects
+
+client test the user management --> 10 bugs
+
+product management == clear the previous bugs and develop product management
+
+ferrari == fortuner
+
+DevOps with Agile
+-----------------------
+DAY-1
+
+developer writes some code, the same day build(compile and pack) the code, test it
+
+100 lines of code --> testing is simple
+no of invalid defects are less
+2 valid defects --> very easy to developer
+Ops --> testing, build and release(DevOps)
+
+We create a process called CICD with the help of tools, the same day we are able to build and test the application
+
+DEV QA UAT PRE-PROD PERF PROD
+
+1. Faster releases
+2. Less defects
+
+speed and accuracy
+
+DevOps == Continous improvement
+	DevSecOps --> added security inside it
+	shift left
+	GitOps --> Entire process should be in Git.
+
+What is computer?
+-----------------------
+Can I call mobile as computer?
+Can I call TV as computer?
+Can I call Server as computer?
+
+Software --> communication between computers
+
+Facebook --> A group of computers/servers
+
+Computer --> compute something, it can do some work
+
+IP enabled device
+-----------------
+CPU(Procesor)
+RAM
+OS
+ROM(Storage)
+
+Server --> Deploy the application
+
+Client and Server
+
+Lawyer and Me
+
+Lawyer --> Server (Serves someone)
+Client --> Me
+
+Browser --> Client
+edge, chrome, firefox, opera, etc.
+
+Which OS is suitable for Servers?
+---------------------------------
+Unix, Windows Server
+
+not open source --> Only MS controls
+graphics --> consumes resources(CPU, RAM) alot
+Cost --> High
+Security --> less
+Speed --> less
+
+clicks in windows --> commands --> Hardware
+
+Why Azure services are down?
+
+Even you are running Azure VM in Linux, still it is down. AKS MSSQL down
+underlying azure infra is MS OS
+
+Unix == Linux
+
+Unix is hardware locked --> Mac Laptop == Mac OS + Mac Hardware
+
+Dell --> Dell Hardware
+OS you can choose anything
+
+He built Linux from the scratch without lock, and released to public
+
+Linux --> Ubuntu, Centos, Fedora, Solaris, Android, Redhat, etc.
+commands --> Hardware
+
+Redhat --> Enterprise, if you face any problem they will help us
+Redhat == CentOS/Almalinux
+
+Cloud and DevOps two wheels to a bike
+
+AWS Account --> FREE(1 year free trail) --> 3,000(there is refund option)
+------------
+1. Use private banks
+2. enable internation usage
+3. enable online usage
+
+first name and lastname should be as the bank debit/credit card name
+address should be given same as in bank
+
+Choose Personal account
+
+
+Build errors
+Deployment errors
+Testing errors
