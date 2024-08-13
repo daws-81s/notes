@@ -1,0 +1,172 @@
+Session-02
+--------------
+Recap
+what is devops?
+waterfall vs agile vs devops
+SDLC
+what is computer
+client server architecture
+Linux advantages
+
+Create Linux Server
+Connect to it
+Create firewall/Security group
+Command syntax
+few commands
+
+Authentication
+---------------
+1. What you know -> Username and password --> private systems
+2. What you have --> username and tokens(RSA, Authenticator) --> Public systems
+3. What you are --> Fingerprints, palm, retina, face, etc --> Public systems
+
+lock and key are pair
+
+box and lock are public
+key is private
+
+key based mechanism
+key pair == public key and private key
+
+box = server == node == Ip address
+public key is inside server
+
+while authenticating user should send his username and private-key
+
+Delhi --> Hyderbad(DTDC)
+--------------------
+flat no, apartment name, street name, city, pincode
+
+Pincode(HYD DTDC)
+Streetname
+apartment name
+if no flat no, letter is stuck apartment name
+
+Server --> it has lot of services, every service has protocol
+
+I can open google in browser using HTTP-80/HTTPS-443
+
+SSH protocol is used to connect to servers with particular number. port no 22
+
+0-65,535 ports == 65,536 ports
+
+ssh --> 22
+http --> 80
+https  --> 443
+mysql --> 3306
+
+what is the protocol, port, username, password/private-key
+
+ssh-keygen -f <file-name>, I should have some client to connect Linux server
+gitbash, putty, mobaxterm
+
+Gitbash --> git, Linux server, Mini Linux in windows
+
+/c/Users/ramesh
+
+present working directory == pwd
+
+.xls
+.doc
+
+ssh-rsa <random-code> laptop-username@laptop-name
+
+internet --> 0.0.0.0/0 --> public
+
+1. import public key
+2. create firewall
+
+OS, CPU, RAM, HD
+
+Amazon Linux 2023 == RedHat == CentOs
+
+98.81.6.228
+ec2-user
+ssh
+22
+private-key
+
+/home/<user-name> == Landing Directory
+$ --> normal user
+
+command-name <options> <inputs>
+
+pwd
+clear
+cd --> change directory
+
+cd /
+
+/ --> root directory
+
+ls -l --> l for lenghty format
+ls -lr --> reverse order
+
+ls -lt --> based on time, latest on top
+ls -ltr --> latest on down
+
+hidden files starts with .
+ls -la --> a means all
+
+
+CRUD --> Create Read Update Delete
+
+sign up --> creating profile in amazon
+Login --> reading my account
+password change --> updating the profile
+account delete --> deleting the account
+
+placing order --> creating order
+changing order details --> updating order
+cancelling order --> deleting the order
+
+CRUD
+
+create, read, update and delete
+
+touch --> create file
+
+touch file-name --> creates the file
+cat > devops.txt --> adding text
+enter the text
+ctrl+D
+
+cat file-name --> reading the text
+
+
+cat >> file-name --> append/add the text
+
+
+cd .. --> one step back
+
+rm --> remove file
+
+mkdir --> create directory
+mkdir devops
+
+d--> directory
+- --> file
+
+rmdir --> remove only empty directory
+
+rm -r --> delete folder and content inside folder
+
+mv <old-file-name> <new-file-name>
+command-name <options> <inputs>
+mv awss.txt aws.txt
+
+-<single-char> or --<word> == Options
+
+absolute(complete) path and relative path
+
+cd .. --> relative path
+cd /home/ec2-user --> absolute
+
+
+1. Create AWS account
+2. Install gitbash and notepad++
+3. create keypairs
+4. Import public key into AWS
+5. Create security group
+6. launch instance
+7. connect to instance from gitbash
