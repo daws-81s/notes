@@ -1,0 +1,125 @@
+Recap
+-------
+vim editor
+
+Esc
+command/colon mode
+insert mode
+
+
+Esc --> Mode
+:
+i
+
+:q --> quit
+:q! --> force quit without changes
+:wq --> write and quit
+:/ --> search from top
+:? --> search from bottom
+:set nu
+:set nonu
+:noh
+:%d
+:1d --> delete 1st line
+:s/word-to-find/word-to-replace/g
+:%s/word-to-find/word-to-replace/g
+
+
+u
+yy
+dd
+p
+shift+g --> takes bottom
+gg --> takes to top
+
+insert
+
+awk, cut commands
+
+chmod ugo+rwx file-name
+R -> 4
+W -> 2
+X -> 1 
+
+Linux Administration
+--------------------------
+sudo su --> super user access
+
+create user
+useradd <user-name>
+
+id --> gives all info about current user
+
+useradd ramesh
+id ramesh --> displays ramesh information
+
+when you create user, by default a group will be created on the same username
+
+/etc/passwd --> users info
+/etc/group --> group info
+
+passwd <user-name>
+
+passwd ramesh --> setup the password for ramesh
+
+create devops group and add ramesh to devops group
+
+groupadd devops
+every user have atleast one primary group and multiple secondary groups
+
+usermod -g devops ramesh --> adding ramesh to devops group
+
+ramesh primary --> devops
+ramesh secondary --> testing
+
+usermod -aG testing ramesh --> adding ramesh to testing group as secondary
+
+gpasswd -d ramesh testing --> delete ramesh from testing
+
+created his user
+created group
+added him to group
+you can remove from group
+
+if employee leaves the organisation
+-------------------------------------
+1. remove him from the group
+2. then delete the user
+
+a user must have atleast one primary and one secondary group
+
+usermod -g ramesh ramesh
+userdel ramesh --> ramesh user and ramesh group both will be deleted
+
+groupdel
+
+suresh, suresh123
+
+inform suresh, that his user is creatd
+
+18.212.106.66 --> he should login with username and password
+
+by default, linux OS will not allow password authentication, it will only allow key based authentication
+
+systemctl restart sshd
+
+/home/suresh
+
+.ssh --> authorized_keys --> public key
+
+Linux admins will ask for suresh public key... Suresh generates key pair and send public key to Linux admin
+
+400 --> read access only to user, even suresh should not have write access
+
+Ownership
+-------------------
+chown --> change ownership
+
+private key, suresh
+
+/home/suresh --> authorized_keys
+
+directory --> 700
+authorized_keys --> 400
+
+directory --> 600
