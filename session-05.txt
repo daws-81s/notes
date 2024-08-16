@@ -1,0 +1,116 @@
+Recap
+---------
+CRUD
+creating user
+reading user
+updating user
+deleting user
+
+useradd <username>
+
+ssh -i ramesh ramesh@IP
+
+.ssh --> 600
+authorized_keys --> 400
+
+Package management
+------------------------
+A software have lot of dependencies on other softwares
+
+rpm --> redhat package manager
+
+identify the dependencies, install the dependencies and finally install the package you want
+
+yum --> dnf
+
+/etc/yum.repos.d/
+dnf install 
+
+dnf list installed
+
+how can check cpuinfo, memory info, OS
+/etc/os-release
+/proc/cpuinfo
+/proc/meminfo
+
+Service Management
+---------------------------
+serive start, service stop, service restart, status check, enable, disable
+
+systemctl status sshd
+
+HTTP --> 80
+
+Nginx --> install this package
+start the service
+
+dnf install nginx -y
+
+http://54.198.23.187:80
+
+SG --> port no 80 allowed
+forward request to Linux Server
+
+enable --> by default enabled services will start automatically
+
+Process Management
+--------------------------------
+a sequence of steps to be executed to complete a task...
+
+Marriage
+----------
+Father is a responsible person to make marriage success
+
+sub tasks
+
+
+Office
+---------
+Delivery manager
+
+1. Team Lead
+2. Senior Engineer
+3. Junior Engineer
+4. Freshers/Trainees
+
+Freshers/Trainees --> JE
+JE --> SE
+SE --> TL
+TL --> DM
+
+TaskID
+
+every process should have an ID for tracking purpose.
+
+DM --> 001
+TL --> 002
+SE --> 003
+JE -->004
+Trainees --> 005
+
+Child 005 --> 004(Parent)
+004 --> 003
+003 --> 002
+002 --> 001
+001 --> Root Process
+
+nginx --> PID should be there
+
+ps -ef | grep nginx
+
+foreground --> BLOCKS the screen, runs in foreground
+background --> runs in background, you can do other works
+
+
+top
+
+kill --> request
+kill -9 --> order
+
+Network Management
+-----------------------
+ports check
+
+netstat --> network statistics
+
+netstat -lntp --> it will tell you what ports are open
