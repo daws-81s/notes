@@ -1,0 +1,148 @@
+Project
+--------------------
+
+Desktop appliactions
+
+5min. I need to restart the sytem:
+
+Disadvantages
+----------------
+We have to install
+We have maintain storage --> only in single system
+We have to upgrade
+fixing the problems
+What if system crash?
+system resources
+
+Web based appliactions
+-------------------
+no installation
+no upgrade
+no compatability issues
+no storage issues
+you can open every where
+
+
+Web based appliactions --> 3 tier architecture
+
+Road side cart
+----------------
+only one person
+
+He has to take care of cooking, billing, serving, ordering, cleaning, etc.
+10 persons
+
+hire someone
+
+product taste and quality..
+
+billing, serving he has to hire someone else
+
+small hotel
+----------------
+cook, billing counter
+
+owner --> issues tokens
+cook --> he will cook and serve
+
+15 persons to deal
+
+upgrade to restuarant
+---------------------
+when you enter --> someone will welcome you, he will show the table
+captain --> which table is free
+
+waiter --> takes the order --> queue management,taking order, serving order
+
+chef --> sees the order and cook the meal --> only cooking
+
+Raw products --> eatable format
+
+Waiter --> Web server
+Chef --> App server
+Raw items --> DB server
+
+Raw products == Data
+
+data is in tables and columns
+----------------------------
+user_id, user_name, first_name, last_name, password, created_date, dob
+1         sivakumar  sivakumar   M         siva123    `9-AUG-2024   01-01-01
+
+Chef == App server
+
+username, password
+
+through SQL queries, app server will check the data
+CRUD
+
+select * from user where user_name='sivakumar' and password='siva123'
+
+WebServer --> put that into HTML format, so that a normal can easily format
+
+{
+	"user":"sivakumar",
+	"dob":"01-01-01",
+	"location":"bangalore"
+}
+
+security --> 
+Web server --> Queue management
+
+Web Tier --> LB, Web Servers
+App/API Tier --> App servers
+Data tier --> DB Servers
+
+Databases --> MySQL, MSSQL, Oracle, Postgress, MongoDB, Redis
+App/API(Backend Tier) --> Java, Python, NodeJS, DotNet, Go, etc,
+Web(Frontend) Tier --> HTML, CSS, JavaScript, ReactJS, Angular, ExpressJS, Jquery, etc...
+
+Static --> Frontend applications are static --> Nginx, Apache, etc.
+Dynamic --> Backend appliactions are dynamic --> JBoss, Webspher, WebLogic,etc. --> Tomcat
+
+Waiter, Chef, items
+
+
+devops-practice --> goto community AMI --> Redhat 9
+We will use only username and password to login servers
+
+ec2-user
+DevOps321 --> D and O is caps
+
+Database server
+----------------
+install DB --> MySQL
+3306
+dnf install
+
+run DB --> systemctl
+
+check the status --> systemctl staus
+check port opened r not --> netstat -lntp
+check the process --> ps -ef | grep <name>
+
+username is root
+password 
+
+server software is mysql-server and it is running, to check data you should connect to server through client
+
+client package is just mysql
+
+mysql -h <IP> -u root -p<password>
+
+mysql -u root -p<password>
+
+user --> user schema
+
+posts --> posts schema
+
+videos --> videos
+
+mysql
+
+show databases;
+use <database-name>;
+show tables;
+select * from <table-name>;
+
+
