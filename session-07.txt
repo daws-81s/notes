@@ -1,0 +1,33 @@
+devops-practice
+ec2-user
+DevOps321
+
+ssh username@IP-address
+Backend --> Java, DotNet, Python, NodeJs, go, ruby, php, etc.
+
+NodeJS
+----------
+dependencies --> nginx, git, etc.
+
+libraries
+what is library? --> Whenever you want you can consume, no need to buy. It is common for everyone. Many people can use it
+
+NodeJs
+--------
+build file == package.json --> where you mention your project metadata. Name, description, version, dependencies and their versions.
+
+build tool = npm --> it will search package.json in your folder and it will get the dependencies/libraries from internet
+
+Java
+--------
+build file == pom.xml --> Name, project description, dependencies and their versions
+
+build tool = maven --> it will search pom.xml in your folder and it will get the dependencies/libraries from internet
+
+Python
+---------
+build file == requirements.txt --> Name, project description, dependencies and their versions
+
+build tool = pip --> it will search requirements.txt in your folder and it will get the dependencies/libraries from internet
+
+
