@@ -1,0 +1,99 @@
+[Unit]
+Description = Backend Service
+
+[Service]
+User=expense
+Environment=DB_HOST="mysql.daws78s.online"
+ExecStart=/bin/node /app/index.js
+SyslogIdentifier=backend
+
+[Install]
+WantedBy=multi-user.target
+
+without touching the servers, tasks should automatically update
+
+DNS --> Domain name system
+----------
+mysql.devops.com --> return IP address
+
+domain registars --> godaddy, hostinger, AWS, Azure, GCP, etc.
+
+hostinger --> cheapest way to buy domains
+
+domain name is unique in the universe...
+
+google.com/facebook.com 
+
+computers understand only numbers
+humans understand only names
+
+facebook.com --> 18.90.23.217
+consider yours is new laptop, opened browser for first time
+browser checks its cache for IP of facebook.com
+browser contacts OS, for IP address of facebook.com
+OS checks its cache now, it is NA...
+
+ISP is responsible for the DNS resolution.
+
+OS is enabled to contact ISP DNS resolver
+
+DNS resolver checks its cache...
+
+Root servers --> 13 servers
+top MNC companies and country governments create a non profit organisation to manage these root servers
+Oxford --> new english words adding
+
+DNS resolver contacts nearest root servers...
+
+root server scans the domain you asked for
+facebook.com 
+
+TLD --> top level domains
+.com, .online, .org, .edu, .in, .uk, .us, .net, .io, .ai, .shop, etc
+.siva
+
+Root server informs DNS resolver to contact .com TLD. Root server provides .com TLD address details
+
+DNS resolver contacts .com TLD to provide IP address
+
+TLD checks its system to provide IP address of facebook.com
+
+Records
+---------------
+A record --> you have to update IP address to your domain
+
+.siva. I should contact root servers that I started a TLD called .siva
+
+Domain registars are middle man. now I connect all major domain registars to show my domain TLD
+
+Domain registars inform TLD that some one bought facebook.siva domain
+
+Domain registars update nameservers for the domain from TLD....
+
+DNS resolver connects with TLD address... address is nothing but nameservers
+
+mysql -h mysql.daws78s.online -uroot -pExpenseApp@1 < /app/schema/backend.sql
+
+
+proxy_http_version 1.1;
+
+location /api/ { proxy_pass http://backend.daws78s.online:8080/; }
+
+location /health {
+  stub_status on;
+  access_log off;
+}
+
+hdfcbank.com --> domain
+netbanking.hdfcbank.com --> Sub domain
+
+frontend.daws78s.online
+daws78s.online
+
+Proxy --> Someone on behalf of you
+
+Frontend proxy, reverse proxy
+
+1. Book the domain
+2. Understand what is A record
+3. Install nginx and you should see welcome page with your domain name
