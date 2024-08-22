@@ -136,3 +136,13 @@ git --> store scripts or programs
 
 
 
+/ --> frontend website
+/hello --> hello website
+/app --> backend
+/app1 --> backend1
+
+m.facebook --> mobile servers
+facebook --> web servers
+
+daws81s.online
+daws81s.online/hello 
