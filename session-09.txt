@@ -1,0 +1,138 @@
+Domain create
+Domain transfer through R53 hosted zone
+Update NS in hostinger
+
+Browser --> Cache --> OS --> OS cache --> ISP DNS resolver --> Root servers --> TLD information --> TLD NS --> NS --> Records
+
+Domain registar --> TLD about update
+
+A --> IP address
+CNAME --> another domain redirect
+MX --> Mail servers
+NS --> Nameservers
+SOA --> Authorization
+TXT --> validation purpose.
+
+Forward proxy and reverse proxy
+--------------------------------
+1. You can watch restricted content
+2. You can change Geo location
+3. client side proxy, only client is aware of proxy
+4. Hiding client identity
+5. Traffic monitor
+6. Secure connections
+7. Content access restriction
+8. We can use it for cache purpose
+
+Reverse Proxy
+-------------------------
+1. Only Server is aware of proxy
+2. Security between clients and servers
+3. as load balancer..
+4. SSL termination
+
+/etc/nginx/nginx.conf --> default conf
+/usr/share/nginx/html
+/var/log/nginx
+
+include /etc/nginx/default.d/*.conf;
+
+upstream backend {
+      server 172.31.44.133; 
+      server 172.31.38.145;
+   }
+   
+proxy_http_version 1.1;
+
+location / { proxy_pass http://upstream/; }
+
+location /health {
+  stub_status on;
+  access_log off;
+}
+
+/usr/share/nginx/html --> default
+
+IP or IP/ --> /usr/share/nginx/html/index.html
+
+Linux folder structure
+----------
+/ --> root directory of the OS
+/bin(binaries) --> essential commands are here. ls, cat, grep, etc.
+/sbin(system binaries) --> admin commands, reboot, iptables, etc.
+/boot --> when linux server started, it refers boot directory for system configuration
+/dev(devices) --> monitor/terminal, keyboard, printers, etc.
+/etc(extra configuration) --> system configuration files, service configurations, etc.
+/home(home directory of users) --> all users directory are here, their personal files, user related configs..
+/lib(Libraries) --> libraries/dependencies required by OS equal to .dll in windows
+/lib64(64 bit libs)
+/media(Media devices) --> CD, DVC, USB, etc.
+/mnt(mount) --> adding extra disks
+/opt(optional) --> if you want third party applications, custom applications you can keep here
+/proc(processor) --> /proc/cpuinfo /proc/meminfo
+/root (Root user) --> home directory of root user
+/run (Running information of server)
+/srv(service files) --> When you use your server to serve as file server, you can use this
+/swap(Swap space) --> 1GM ram, OS will use this swap space for extension of RAM. Reserver space
+/sys --> system kernal info, devices info, etc
+/tmp --> temporary directory, not at all important
+/usr --> shared files and docs between all users...
+/var(variables) --> logs and messages
+
+/etc
+/opt
+/var
+/bin
+
+Linux is completed 
+
+Configuration
+----------------------
+1. Install application runtime --> nodejs, java, etc.
+2. create a user
+3. create a folder
+4. download code
+5. install dependencies
+6. create systemctl services
+
+free -m --> check ram usage
+df -hT --> HD usage
+
+123456789
+
+keep all your commands in a file and run that file --> shell script
+
+What is shell?
+
+Shell is a interpreter in Linux, that checks and executes the users commands
+
+/bin/bash --> interprets every command issued inside linux server
+
+1. carry one by one to home
+2. use a truck, keep everything inside and carry to home
+
+if a command gives error, let us proceed or clear the error and proceed
+
+when you run through program, it should be able to check previous command is success, if success proceed, if failure stop and inform user(error handling)
+
+Algorithm
+---------------
+write steps in your own language what to do?
+
+Install a pacakge through shell script??
+
+check you have root access or not
+
+if no root access, show the error
+
+check if already installed or not, inform already installed
+
+if not installed, install it
+
+check success or not
+
+git --> store scripts or programs
+
+
+
+
