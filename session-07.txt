@@ -12,6 +12,8 @@ dependencies --> nginx, git, etc.
 libraries
 what is library? --> Whenever you want you can consume, no need to buy. It is common for everyone. Many people can use it
 
+source files --> *.js
+
 NodeJs
 --------
 build file == package.json --> where you mention your project metadata. Name, description, version, dependencies and their versions.
@@ -24,10 +26,123 @@ build file == pom.xml --> Name, project description, dependencies and their vers
 
 build tool = maven --> it will search pom.xml in your folder and it will get the dependencies/libraries from internet
 
+source files --> *.java
+
 Python
 ---------
 build file == requirements.txt --> Name, project description, dependencies and their versions
 
 build tool = pip --> it will search requirements.txt in your folder and it will get the dependencies/libraries from internet
 
+source files --> *.py
 
+suresh --> humans
+
+system users --> expense
+
+/app --> used this folder to place the application
+
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+
+nodejs
+-----
+build file --> package.json
+build tool --> npm --> node package manager
+files --> *.js
+npm install
+node_modules
+
+/bin/node /app/index.js
+
+dnf install nginx -y
+systemctl start nginx
+
+[Unit]
+Description=ATD daemon
+[Service]
+Type=forking
+ExecStart=/usr/bin/atd
+[Install]
+WantedBy=multi-user.target
+
+/etc/systemd/system --> Here you can place all your service files
+
+extension --> .service
+
+[Unit]
+Description = Backend Service
+
+[Service]
+User=expense
+Environment=DB_HOST="<MYSQL-SERVER-IPADDRESS>"
+ExecStart=/bin/node /app/index.js
+SyslogIdentifier=backend
+
+[Install]
+WantedBy=multi-user.target
+
+IPv4 Address. . . . . . . . . . . : 192.168.1.6
+59.182.32.230
+
+public IP may change when restart the server, but private IP will never change
+
+/var/log/messages --> Linux logs everything here
+
+{ "timestamp" : 1724121897, "msg" : "App Started on Port 8080" }
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]: node:events:497
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:      throw er; // Unhandled 'error' event
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:      ^
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]: Error: Access denied for user 'expense'@'ip-172-31-46-138.ec2.internal' (using passwor
+d: YES)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at Packet.asError (/app/node_modules/mysql2/lib/packets/packet.js:738:17)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at ClientHandshake.execute (/app/node_modules/mysql2/lib/commands/command.js:29:26)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at Connection.handlePacket (/app/node_modules/mysql2/lib/connection.js:481:34)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at PacketParser.onPacket (/app/node_modules/mysql2/lib/connection.js:97:12)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at PacketParser.executeStart (/app/node_modules/mysql2/lib/packet_parser.js:75:16)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at Socket.<anonymous> (/app/node_modules/mysql2/lib/connection.js:104:25)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at Socket.emit (node:events:519:28)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at addChunk (node:internal/streams/readable:559:12)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at Readable.push (node:internal/streams/readable:390:5)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]: Emitted 'error' event on Connection instance at:
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at Connection._notifyError (/app/node_modules/mysql2/lib/connection.js:252:12)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at Connection._handleFatalError (/app/node_modules/mysql2/lib/connection.js:183:10)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at Connection.handlePacket (/app/node_modules/mysql2/lib/connection.js:491:12)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at PacketParser.onPacket (/app/node_modules/mysql2/lib/connection.js:97:12)
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    [... lines matching original stack trace ...]
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:    at Readable.push (node:internal/streams/readable:390:5) {
+Aug 20 02:44:57 ip-172-31-46-138 backend[14409]:  code: 'ER_ACCESS_DENIED_ERROR',
+:
+
+create a schema/database for expense project
+create a table
+
+CREATE DATABASE IF NOT EXISTS transactions;
+USE transactions;
+
+CREATE TABLE IF NOT EXISTS transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    amount INT,
+    description VARCHAR(255)
+);
+
+CREATE USER IF NOT EXISTS 'expense'@'%' IDENTIFIED BY 'ExpenseApp@1';
+GRANT ALL ON transactions.* TO 'expense'@'%';
+FLUSH PRIVILEGES;
+
+mysql -h 172.31.40.207 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+
+backend applications mostly opens --> 8080
+
+ping <IP>
+
+telnet <IP> 3306
+
+/etc/nginx --> nginx config is here
+/usr/share/nginx/html --> here you need to place your websites
+/var/log/nginx --> here nginx places the logs
+
+/usr/share/nginx/html/index.html --> load automatically when you hit IP
+
+Forward proxy vs Reverse Proxy
+DNS --> Domain name system
