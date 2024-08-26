@@ -1,0 +1,153 @@
+Recap
+----------
+variables
+data types
+conditions
+loops
+functions
+
+variables
+----------
+DRY --> don't repeat yourself
+variables inside script
+variables passed as arguement
+variables sent through interruption
+
+FRUITS=("Apple" "Jack" "Banana")
+
+How do you run a command inside shell script and get the value?
+
+adding to staging area
+commit
+push
+
+when script started executing
+
+VARIABLE=$(command)
+
+I want a program to add 2 numbers...
+(a+b)
+
+special variables
+--------------------
+1. I want all the variables passed to the script
+$@
+
+2. How many variables/args passed to the script
+$#
+
+conditions
+--------------------
+if and else
+
+if(expression)
+{
+	execute these statements if above expression is true
+}
+
+if(expression)
+{
+	execute these statements if above expression is true
+}
+else
+{
+	execute these statements if above expression is not true/false
+}
+
+
+today=what is today
+
+if(today == "Monday" or "Tuesday" or "Wed" or "Thu" or "Fri")
+{
+
+	print "attend the class"
+
+}
+else
+{
+	print "no class"
+}
+
+if(today != "Sat" or "Sun"){
+	print "attend session"
+}
+else{
+	print "no session"
+}
+
+1. get the numbr
+2. check it is greater than 20 or not
+3. print number greater than 20, if it is greater than 20
+4. otherwise print less than 20
+
+install mysql through shell script
+
+root access
+
+1. check the user has root access or not
+2. if root access, proceed with the script
+3. otherwise through the error
+4. check already installed or not, if installed tell the user it is already insalled
+5. if not installed, install it
+6. check it is success or not
+
+if you face error, what you do?
+	proceed running the script
+	stop the script execute, clear error and run again
+	
+it will not stop even it face the error...
+
+how you will check previous command is success or not
+
+exit status
+--------------
+$?
+
+it will tell you the state of previous command
+
+0 --> success
+1-127 --> failure
+
+10th exams, with 33%
+
+functions
+-----------------
+some work to do
+
+we need inputs to perfom some work --> we get output
+
+login(username, password){
+	select * from user where user='username' and password='password'
+	if ($? -eq 0 )
+	then
+		echo "login success"
+	else
+		echo "login failed"
+	fi
+}
+
+you can call function anytime
+
+FUNC_NAME(){
+
+
+}
+
+FUNC_NAME
+
+
+better coding
+--------------
+1. less number of lines but same work
+2. double number of lines but same work
+
+Colors
+--------------
+success-> green
+failure-> red
+
+31m-> red
+32m-> green
+33m--> yello
+
+R"\e[31m"

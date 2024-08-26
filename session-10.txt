@@ -1,0 +1,134 @@
+Shell Scripting
+------------------
+manual disadvantages
+--------------------
+1. human errors
+2. time taking
+
+1. security issue
+2. collobration issue
+in Git
+
+Git is decentralised source code management...
+
+GitOps --> git is the single source of truth...
+
+centralised vs decentralised/distributed
+
+centralised capital vs decentralised capital
+----------------------------------------------
+1. single point of failure --> entire country is at stake
+2. single point of development
+3. accessbility
+4. economoy
+5. riots
+
+1. no single point of failure
+2. development is distributed
+3. easy accessbility
+4. social and economical balance
+
+Git follows distributed/decentralised architecture. Same kind of setup exists in remote server is available in all the computers connected to that repo. So at any point of single computer is enough to restore everything. This is called distributed/decentralised. This is acheived loaclrepo setup.
+
+repository == which stores something
+
+Git --> concept invented Linus Torvalds, inventor of Linux
+GitHub, BitBucket, GitLab, Codecommit,Azure repos, etc.
+
+clone --> download the repo
+
+git clone <URL>
+
+normal folder vs git repo --> .git(hidden)
+
+IDE --> Integrated development environment
+
+Colors, Syntaxt highlight, etc...
+
+vscode
+
+workspace --> where you develop scripts
+
+1. staging/index area
+
+task1, task2 are in development
+
+task1 should be released/pushed to git. whatever the changes completed push them to staging area...
+
+git add <file-name>
+
+git commit -m "I created a new Hello World"
+
+git push origin main
+
+main is our default branch
+
+Shell --> Shell is an interpreter that executes the commands
+
+#!/bin/bash
+
+What is shebang --> it is the first line in shell script, that interprets the commands and execute them
+
+print hello world = echo "Hello World"
+
+sh <script-name>
+bash <script-name>
+./<script-name> --> for this you should have execute permission
+
+firstime --> git clone(downloads the entire repo)
+changes --> git pull (changes will be downloaded)
+
+Let's say x=0, y=1
+
+formula derive
+
+finally submit variables
+
+DRY --> don't repeat yourself
+Centralised place --> if you change at one place, it will update everywhere, reduced human errors
+no accidental changes
+
+
+git add . --> stage all the files
+
+variables
+data types
+conditions
+loops
+functions
+
+developers code
+	perfomance --> high, should load fast
+	DB --> must fetch the data fast
+	memory and system resources --> should consume less
+
+scripting
+	No DB, no need of super perfomance and system resources
+	
+variables
+------------
+int i=0
+
+VAR_NAME=VALUE (no space between name, equal and value)
+
+sh 04-variables.sh Ramesh Suresh
+                     1st   2nd
+arguments/args/inputs
+
+
+1. inside the script
+2. pass from outside through args
+3. Enter at runtime
+
+data types
+-------------
+int, float, decimal, long, string, array, arraylist, set, map, etc..
+
+1 --> number
+siva --> word string
+siva ramesh suresh --> statement (array or arraylist --> list of names)
+
+list --> first element position
+0,1,2,3, etc
+
+0, 1, 2 
