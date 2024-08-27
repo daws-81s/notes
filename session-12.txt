@@ -1,0 +1,49 @@
+loops
+------------
+for(int i=0;i<=100;i++{
+	print i;
+}
+
+Acer Swift go 14
+i5, 16GB --> 62k
+
+for i in 1 2 3 4 5 6 7 8 9 10
+do
+	echo $i
+done
+
+logs are very important for any coding
+
+redirectors
+--------------
+ls -l > output.txt --> by default it redirects only success output
+1 --> success
+2 --> error
+
+ls -l 2> output.txt --> redirect only error output
+
+ls -l &> output.txt
+
+16-redirectors.sh --> 16-redirectors
+
+/var/log/shell-script/16-redirectors-<timestamp>.log
+
+write logs on termial and logfile both...
+imp msgs on termial 
+
+tee --> writes logs to multile destinations
+
+idempotency
+----------------------
+if you a run a program for infinite times, it should not change the result
+
+CRUD
+
+Creation --> check if it is already created or not
+Read --> no issue
+Update --> no issue
+Delete --> no issue
+
+check already mysql root password is setup or not, if setup you can tell already done..othwrwise setup
+
+mysql -h 
