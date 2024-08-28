@@ -1,0 +1,80 @@
+variables
+conditions
+loops
+functions
+data types
+
+colors
+redirections
+exit status
+
+algorithm
+expense
+	mysql
+idempotency --> if you run the script infinite times, it should give smae result
+
+deployment or new version release
+--------------
+downtime announce --> We are under maintanance on 29-AUG 02:00AM-06:00AM
+stop the server
+back up the previous version
+remove the existing version
+download the new version
+start the server
+
+HTTP Methods and HTTP Status codes
+------------------------------------
+CRUD
+
+GET POST PUT DELETE OPTIONS
+
+GET --> read. read the data from database
+POST --> Create. You should send data. Usually it goes as json.
+PUT --> Update. update the existing information
+DELETE --> Delete. 
+
+2** --> 200, 201, 204 --> Success
+4** --> 400 client side error
+
+who is the client for backend --> frontend. 404--> Not found
+400 --> 
+401 --> 
+403 --> 
+400 - Bad Request
+401 - Unauthorized
+402 - Payment Required
+403 - Forbidden
+404 - File Not Found
+405 - Method Not Allowed
+
+5** --> Server side error. they have to fix
+500 - Internal Server Error
+502 - Bad Gateway
+503 - Service Unavailable
+504 - Gateway Timeout
+
+3** --> redirecting
+
+Frontend --> Backend --> Database
+/var/log/nginx
+
+/var/log/messages
+
+trap function
+
+ERR
+
+
+Deleting old logs using shell script
+-------------------------------------
+write a script that should delete .log files which are older than 14 days
+
+*.log --> more than 14 days old
+
+1. which directory
+2. is that directory exists?
+3. find the files
+4. delete them
+
+while loop --> read the output or reading the files
+
