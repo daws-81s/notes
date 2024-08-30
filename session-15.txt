@@ -1,0 +1,157 @@
+Legacy
+---------------
+old technology
+as part of our team, we are managing our legacy systems as well..
+1. monitoring CPU and memory and sending alert emails
+2. backup scripts and scheduled them
+
+Configuration management
+------------------------
+server --> plain server with out anything installed
+
+install app runtime and few packages
+creating users and folder
+downloading code
+installing dependencies
+creating systemctl services
+copying config files
+
+plain --> ready to serve the application/end user --> manual --> shell script
+
+1. not idempotent --> write custom code to make it idempotent
+2. error handling --> we need to write code to check the errors
+3. Homogenous --> only works specific distro
+4. not scalable when too many servers
+5. syntax is not easy to understand
+
+CM tools --> puppet, chef, rundeck, ansible, etc.
+
+push vs pull
+-------------
+
+Courier Delhi --> Hyd
+
+HYD DTDC
+
+1. We go to HYD DTDC daily and check for courier --> pull
+2. We sit in home, whenever courier comes to HYD DTDC, they deliver to us --> push
+
+pull
+---------
+1. causing more traffic on roads --> more traffic in internet
+2. unnecessary resources waste time, fuel, etc. --> bandwidth, power, device resources, etc.
+3. cost
+
+push
+--------
+save everything, ssh protocol
+
+recently we migrated normal servers to ansible managed servers
+
+54.210.150.96 --> /tmp/hello.txt
+
+1. login to server
+2. move to /tmp dir
+3. create file
+4. exit
+
+earlier ansible was only on push based, but recently it implemented pull based also...
+
+inventory
+-------------
+list of servers ansible is managing
+
+1. are your ansible server able to reach node --> firewall configs,
+
+install nginx on node from ansible
+
+dnf install nginx -y
+
+Linux/Shell --> command == Module in ansible
+inputs and options
+
+dnf  install  nginx -y
+cmd  options   inputs
+
+ansible -i 172.31.41.249, all -e ansilbe_user=ec2-user -e ansible_password=DevOps321 -m dnf -a "name=nginx state=installed"
+
+-b --> become root
+
+"changed": true,
+    "msg": "",
+    "rc": 0,
+    "results": [
+        "Installed: nginx-1:1.20.1-14.el9_2.1.x86_64",
+        "Installed: nginx-filesystem-1:1.20.1-14.el9_2.1.noarch",
+        "Installed: nginx-core-1:1.20.1-14.el9_2.1.x86_64",
+        "Installed: redhat-logos-httpd-90.4-2.el9.noarch"
+    ]
+
+adhoc commands --> it is the command issued from ansible server targeting node manually, basically on some emergency/adhoc purpose
+
+run the commands one by one in a sequence --> keep all those commands in a file with some syntax and run it at a time == shell scripting
+
+
+run the commands one by one in a sequence  --> office laptop --> IN --> US
+
+keep all those commands in a file with some syntax and run it at a time --> runs inside US server
+
+playbooks --> Yet another markup language(YAML)
+--------------
+playbook is a list of modules ansible server runs againts its node...
+
+XML vs JSON vs YAML
+---------------
+
+200 years back --> take a paper
+
+1. ac id
+2. date
+3. amount
+4. branch
+5. ac name
+6. denomination
+
+sign it and give
+
+ac name, date, ac id
+
+templates --> cash deposit, cash withdrawal, gold, etc...
+
+field name --> field value
+key name --> key value
+
+DTO --> data transfer objects
+
+<Signup>
+	<Name>sivakumar</Name>
+	<Email>info@joindevops.com</Email>
+</Signup>
+
+{
+	"Name": "sivakumar",
+	"Email": "info@joindevops.com"
+}
+
+{
+	"amount": 200,
+	"description": "food"
+}
+
+Name: sivakumar
+Email: info@joindevops.com
+
+[ means list
+
+Milestone:2
+---------------
+the same project you automated through shell scripting
+
+1. advantages
+2. challenges
+3. errors
+4. final take
+
+
+
+
