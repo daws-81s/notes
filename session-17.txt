@@ -1,0 +1,77 @@
+ansible inventory
+-------------------
+ungrouped
+grouped
+group of groups
+
+data types
+-------------
+string --> text
+int, float, double, decimal, long,etc --> number
+boolean --> true/false
+list
+map
+
+ansible is developed using python language
+
+hosts: web --> target IP under web group
+
+[ --> list
+{ --> map
+
+conditions
+----------------------
+write a playbook to check if number is less than 10 or not
+
+when
+to decide whether a task/module should run or not
+
+create expense user
+
+1. check expense user already exist or not
+2. if exist, don't create
+3. if not exist create
+
+id expense --> if exit staus is 0, dont' create
+
+ansible can't gaurentee module exists for everything...we can use direct commands if module not available
+
+ansible.builtin.command: 
+
+Error Handling --> Handle the errors
+----------------------------------------
+
+if error comes --> ignore errors
+
+ {
+ 'changed': True, 
+ 'stdout': '', 
+ 'stderr': 'id: ‘expense’: no such user', 
+ 'rc': 1, 
+ 'cmd': ['id', 'expense'], 
+ 'start': '2024-09-03 02:30:45.148688', 
+ 'end': '2024-09-03 02:30:45.155066', 
+ 'delta': '0:00:00.006378', 
+ 'failed': True, 
+ 'msg': 'non-zero return code', 
+ 'stdout_lines': [], 
+ 'stderr_lines': ['id: ‘expense’: no such user']
+ }
+ 
+Facts == Variables
+
+Ansible, before connections to the servers/hosts it will collect entire information. so that it can take decisions based on that information
+
+install nginx
+---------------
+redhat --> ansible.builtin.dnf
+ubuntu -->  ansible.builtin.apt
+
+ansible.builtin.package --> package install nginx -y
+
+loops
+------------
+item --> reserved keyword
+
+functions/filters
+--------------------

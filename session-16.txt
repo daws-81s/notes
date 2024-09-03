@@ -1,0 +1,46 @@
+Ansible can connect to any system externally and can perform the tasks given by us...
+
+Here we call ansible modules, every module syntax we can check in the documentation
+module name is mandatory, you can supply args to module.. they may be optional or mandatory
+
+ping module
+
+what is ansible playbook --> It is a list of plays which contains modules that can do specific task.
+
+inventory
+--------------
+1 or many servers
+
+inventory.ini -> a file contains list of servers ansible is connecting to
+
+192.168.1.1
+192.168.1.2
+
+variables
+data types
+conditions
+functions
+loops
+
+#variable declaration
+COURSE=DevOps with AWS
+TRAINER=SivakumarReddy
+Duration=120HRS
+
+
+$VAR_NAME or ${VAR_NAME}
+
+{{}}
+
+inheritance --> 
+
+try not to chage anything in source files. Why? because you may accidentally change other code...
+
+vars_prompt
+
+play level variables
+task level variables
+variables from files
+variables from prompt
+variables from inventory
+variables from command line/args
