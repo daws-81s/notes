@@ -1,0 +1,59 @@
+variables
+conditions --> When
+loops
+	loop
+data types
+
+functions == filters
+
+python --> ansible is not giving opportunity to write custom functions, if we want we have to write python code and get that functionality
+
+filter --> manipulations
+
+course:
+	name: "DevOps with AWS"
+	duration: 120
+	trainer: "sivakumar reddy"
+
+- , []
+
+[
+        {
+            "key": "name",
+            "value": "DevOps with AWS"
+        },
+        {
+            "key": "duration",
+            "value": 120
+        },
+        {
+            "key": "trainer",
+            "value": "sivakumar reddy"
+        }
+ ]
+
+
+ansible.builtin.command
+ansible.builtin.shell
+
+command vs shell
+---------------------
+command --> simple commands, it will not get the shell environment
+shell --> complex like pipes, redirections, etc. it gets the shell environment
+
+command is secure than shell, prefer use command if works
+
+Expense Project
+-----------------------
+3 servers, 3 records
+mysql.daws81.online --> private ip
+backend.daws81.online --> private ip
+frontend.daws81.online --> private ip
+daws81.online --> public ip
+
+ansible is not only CM tool, it can connect to any system if module is available
+
+ansible --> AWS
+
+aws configure
+
