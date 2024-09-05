@@ -1,0 +1,19 @@
+1. I will provide host, username and password
+2. fail, if it does not setup
+3. now create root password
+4. if pass skip it
+
+mysql -h <host-address> -u root -p<password>
+
+ansible server --> remote server/node
+
+Ansible Roles
+------------------
+DRY --> don't repeat yourself
+
+variables
+functions
+
+roles --> we will repeated code here and call whenever required and a proper structure of ansible playbook
+
+"COURSE='DevOps with AWS' "
