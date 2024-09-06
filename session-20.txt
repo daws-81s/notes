@@ -1,0 +1,65 @@
+Ansible Roles
+==============
+A proper structure of playbook that includes variables, files, templates, other dependencies, handlers, etc. We can reuse roles
+
+tasks/    --> You can keep all your tasks here
+handlers/ --> When there is a change in particular task, you can notify other task
+templates/ --> You can keep all your files with variables here
+files/ --> files without variables here
+vars/  --> you can keep all variables here
+defaults/ --> low priority variables
+meta/ --> other dependencies
+library/     
+               --> you can keep your custom modules using python here
+module_utils/     # roles can also include custom module_utils
+
+lookup_plugins/ --> all plugins here
+
+ansible.cfg
+---------------
+/etc/ansible/ansible.cfg
+
+1. ANSIBLE_CONFIG
+2. Current working directory
+3. user home directory
+4. etc 
+
+jinja2 --> templating langugage
+-------------------------------
+
+Handlers/Notifiers
+-------------------------------
+When a task is changed, you want to notify another task for example restart
+
+When a task is not changed, we no need to restart anything and no need to notify
+
+
+
+
+3 modules --> nginx, nodejs, mysql
+
+12 modules --> 4 nodejs, 2 java, 2python
+
+1. remove the existing /app directory
+2. create again
+3. download code
+4. extract code
+
+/app, /usr/share/nginx/html
+
+backend=/app
+frontend=/usr/share/nginx/html
+
+Another Milestone
+----------------------
+Configuration Management
+Expense project using Ansible Roles
+
+Expense project
+----------------------
+mysql, backend, frontend and domains
+
+mysql --> RDS --> sync data from onpremise servers
+backend frontend --> EC2 --> download code and deploy
+
+downtime announcement --> 12hours
