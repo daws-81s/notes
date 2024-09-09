@@ -1,0 +1,44 @@
+Ansible Vault
+-----------------
+ansible-vault create credentials.yaml
+
+Ansible Tags
+-----------------
+I have 100 tasks n my playbook, how to run 10 tasks... using ansible tags
+
+Person --> Name, DOB, address
+
+Ansible Dynamic Inventory
+-----------------
+inventory.ini --> static file
+
+servers increase when traffic increase --> auto scaling
+
+ansible should query cloud and get the IP address dynamically at that time...
+
+1. authenticate
+2. region
+3. name
+4. running
+5. private ip
+
+*.aws_ec2.yml --> file name should be like this
+
+How can you connect to multiple servers?
+---------------------------------------
+ansible --> 1000 t3.xlarge
+
+forks = 5 --> ansible connects to 5 servers at a time and complete the tasks --> task level
+serial =3 --> runs playbook first 3 servers, again it will connect to next 3 servers --> play level
+
+mysql -> mysqlll
+
+updated mysql --> mysqlll
+
+ansible is for configuration management
+
+expense-ansible-mysql
+expense-ansible-backend
+expense-ansible-frontend
+
+inventory --> 
