@@ -1,0 +1,100 @@
+Recap
+----------------
+Linux Servers
+3 tier --> 
+
+Shell scripting
+Ansible
+
+Terraform --> IaaC
+----------------
+EC2
+R53
+IAM users
+
+Manual Infra
+-----------------
+Everything in console.... by mistake if someone edit wrong, then app will go down...30min-1hr
+application restore back to previous stage if something goes wrong
+
+Version control
+
+Consistent Infra --> All environment configs and infra should be some..
+
+CRUD --> Create infra, read, update, deleting the infra
+
+Inventory/resource management --> If you see tf script, you know what are the services you are using
+
+Cost optimisation --> creation in 5min, deletion in 5min
+
+Dependency management --> sg, ec2 instance after creation of all dependencies
+
+Code reuse --> Roles. Modules
+
+Declarative way of creating infra --> You are giving orders to terraform to create infra just by providing right syntax
+
+easy syntax
+no sequence
+state management --> Terraform can track what it created, can update easily
+
+mysql --> mysqlll
+
+
+HCL --> Hashicorp configuration language
+
+Download terraform
+keep terraform.exe in some folder
+edit the environment variables, provide the path
+
+aws configure --> AWS command line install
+
+Resources
+
+Terraform --> AWS, AZure, GCP, Alibaba, Digital Ocean, etc. GitHub, Networking, etc. These are the providers
+----------
+variables
+data types
+conditions
+loops
+functions
+	data sources
+	locals
+	outputs
+	providers
+	provisoners
+	
+Create EC2 instance through terraform
+-------------------------------------
+terraform file extension is .tf
+
+provider.tf --> where you can declare what provider you are using
+
+resource "resource-type" "name-of-resource" {
+	key = value
+}
+
+name
+description
+ingress mandatory
+egress mandatory
+
+ingress --> incoming traffic
+egress --> outgoing traffic
+
+while entering cabin you have to scan your ID...while exit the cabin just push the switch
+
+terraform init --> intialise terraform, it will connect with provider and downloads it
+keep .gitignore always
+
+terraform plan --> cant create resources. it will just plan
+
+terraform apply --> 
+
+terraform apply -auto-approve
+
+
+name
+ami
+sg-id
+instance_type
+key_pair
