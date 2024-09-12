@@ -1,0 +1,115 @@
+Variables
+Conditions
+Data types
+loops
+functions
+
+Variables
+------------
+x=1, y=2
+
+variable is container that holds value...
+
+PERSON=Ramesh
+
+vars:
+	PERSON: Ramesh
+	
+variable "person"{
+	default = "Ramesh"
+	type = string
+}
+
+string name = "ramesh"
+
+string
+number
+list
+map
+boolean
+
+[ --> list
+{ --> map
+
+Tagging Strategy
+----------------------
+Project
+Component/Module
+Environment
+
+Expense
+---------
+MySQL
+Backend
+Frontend
+
+Environment
+-----------
+DEV
+PROD
+
+terraform.tfvars
+--------------------
+using this file, we can override the default values in variables or else you can set the values also.
+
+terraform.tfvars and default values
+
+1. command line
+2. terraform.tfvars
+3. environment variables
+4. default
+
+conditions
+--------------------
+
+if (expression){
+	run this if expression is true
+}
+else{
+	run this if expression if false
+}
+
+expression ? "run this if true" : "run this if false"
+
+environment is prod t3.small or t3.micro
+
+outputs
+-------------------
+every resource exports some values, we can take them and create other resources
+
+loops
+--------------------
+1. count based loop
+2. for or for each
+
+count.index --> 0
+count.index --> 1
+count.index --> 2
+
+functions
+--------------------
+Terraform has no custom functions, We must use in-built functions
+
+merge --> merges 2 lists
+
+list-1 --> name=siva, course=devops
+list-2 --> name=siva, course=terraform, duration=120hr
+list-3 --> name=kumar, course=aws
+merge(list-1,list-2)
+
+name=siva, course=terraform
+name=kumar, course=aws, duration=120
+
+3 ec2 instances
+r53 records
+
+mysql.daws81s.online --> pvt ip
+backend.daws81s.online --> pvt ip
+daws81s.online --> public ip
+
+without .gitigore
+
+git add git commit git push
+
+500Mb file push
+

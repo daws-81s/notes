@@ -1,0 +1,65 @@
+Top to Bottom Approach
+----------------------
+1. What is the problem? --> Manual infra
+2. How terraform is solving? --> Through script, Infra as a Code
+3. Apply
+
+Resources, Providers
+
+1. faster releases
+2. less defects
+
+1. AWS Resource/Service How it works
+2. It needs some input/arguments
+3. Providers will give us outputs
+
+ps -ef | grep ssh
+
+4. Use those outputs and create other resources
+
+variables, data types, conditions, loops and functions
+
+1. 3 ec2 instances
+2. 3 r53 records
+
+created resources, get the outputs and create other resources
+
+AMI ID frequently changes...whenever you update something in AMI, ID will changes
+
+You can query existing info from the providers. this is possible data sources.
+
+Backend API --> creating records(POST), getting data(GET)
+
+search the product, apply the filters --> this is query
+
+devops-practice, rhel-9, apply other filters too
+
+
+data "aws_ami" "joindevops" {
+
+	most_recent      = true
+	owners = ["973714476881"]
+	
+	filter {
+		name   = "name"
+		values = ["RHEL-9-DevOps-Practice"]
+	}
+	
+	filter {
+		name   = "root-device-type"
+		values = ["ebs"]
+	}
+
+   filter {
+	name   = "virtualization-type"
+	values = ["hvm"]
+   }
+}
+
+all recent AMI from joindevops with name RHEL-9-DevOps-Practice
+
+inputs --> args to create resources
+outputs --> after creation of resource. Public IP, private IP, instance ID, etc.
+data sources  --> instead of getting args manually, you can query existing information
+
+
