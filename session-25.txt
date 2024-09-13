@@ -1,0 +1,87 @@
+1. 3 ec2
+2. 3 r53 records
+	backend.daws81s.online --> t3.micro
+	mysql.daws81s.online --> t3.small
+	daws81s.online --> t3.micro
+	
+expression ? "true" : "false"
+
+r53
+-----
+we should get the output of ec2 instanced created
+aws_instance.terraform
+
+backend.daws81s.online
+var.instance_names = backend
+domain_name = daws81s.online
+"${var.instance_names[count.index]}.${var.domain_name}"
+
+locals
+---------------------
+locals are like variables but it have some extra capabilities. You can store expressions and intermediate values in locals
+
+variables can be overriden
+but we can't override locals
+
+1. variables and locals both can store values, but locals have some extra capabilities
+2. locals can store expressions, terraform can run them and get the value
+3. locals can use variables inside. variables can't refer locals
+4. can override variables, can't override locals
+
+state, remote state and locking
+---------------------
+mysql --> mysqllll
+
+it is a simple name update, but ansible created another instance
+
+assignment
+---------------
+I will check your notes and confirm whether you completed or not
+
+declared infra, actual infra
+
+terraform == declarative way of creating infra
+
+tf files == infra I declared
+aws infra == actual infra created
+
+declared infra == actual infra
+
+terraform.tfstate == terraform keeps track of what it created
+
+aws_security_group.allow_ssh_terraform: Refreshing state... [id=sg-0994f93b69e9e3736]
+
+before I delete
+----------------
+declared infra == actual infra --> true
+
+After I delete
+----------------
+declared infra == actual infra --> false
+
+terraform.tfstate --> instance created
+real infra --> no, actually destroyed
+config files --> create the infra
+
+
+terraform.tfstate will be refereshed against real infra
+
+remote state
+----------------
+I am creating infra from my laptop --> it will create infra
+another person also tries to crate --> it will also create infra again
+
+duplicates or errors
+
+.lock --> programs will check if any .lock file is there, it will not allow others to edit 
+
+remote storage --> s3 bucket
+locking --> dynamo DB --> LockID
+
+81s-locking
+81s-remote-state
+
+
+
+
+
