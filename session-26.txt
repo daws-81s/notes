@@ -1,0 +1,46 @@
+Terraform
+------------
+IaaC advantages
+variables
+data types
+conditions
+loops --> count based loop, count.index --> used for lists
+functions
+
+locals --> to store expressions
+outputs --> provide the output of resources, like IP, id, etc.
+data sources --> query the information from provider like AMI ID, etc.
+state and remote state --> terraform uses state concept to compare declared vs actual/real infra. We keep state remotely in colloboration envrionment.
+locking --> make sure infra provisioning is not running parellely
+tfvars --> to override default variables
+
+for each is used to iterate map...
+
+expense infra
+-------------
+frontend -> t3.micro
+backend --> t3.micro
+mysql --> t3.small
+[] --> list
+{} --> map
+
+if frontend name should be daws81s.online otherwise backend/mysql.daws81s.online
+
+dynamic
+--------
+
+provisioners
+------------------
+provisioners are used to take some actions locally or remotely..
+
+local --> where terraform executed is local...my laptop
+remote --> inside the servers you created..inside the servers of backend, frontend, mysql. etc.
+
+1. local-exec
+2. remote-exec
+
+remote-exec --> execute commands inside remote server
+
+
+Module development
+--------------------

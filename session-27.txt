@@ -1,0 +1,87 @@
+Conistent infra across all env
+------------------------------
+1. tfvars
+2. terraform workspaces
+3. seperate repos
+
+resource defnition
+
+left side --> arguements
+right side --> values
+
+tfvars --> override the default variables
+
+dev.tfvars --> this should be for dev env
+prod.tfvars --> this should be for prod env
+
+backend -->s3 and dynamo db
+
+1. keep the same bucket but diff key
+2. keep diff buckets for diff env and diff key
+
+expense infra
+---------------
+3 ec2, 1 sg, 3 r53 records
+
+mysql-dev
+backend-dev
+frontend-dev
+
+mysql-dev.daws81s.online
+backend-dev.daws81s.online
+frontend-dev.daws81s.online
+
+
+mysql-prod
+backend-prod
+frontend-prod
+
+mysql-prod.daws81s.online
+backend-prod.daws81s.online
+daws81s.online
+
+workspaces
+------------
+ec2 instance
+if dev t3.micro
+if prod t3.medium
+
+terraform.workspace == prod
+terraform.workspace == dev
+
+
+advantages
+-------------
+1. code reuse --> same code
+
+disadvantage
+-------------
+1. easy to do errors
+2. not easy to implement
+3. changes made can effect all environments
+
+
+seperate code for seperate env
+-------------------------
+
+expense-infra-dev
+
+expense-infra-prod
+
+disadvantage
+--------------
+duplicated code
+
+Module development
+------------------------
+DRY
+
+variables
+functions
+roles
+
+functions --> inputs and outputs, we call function. you can call infinite times
+
+write code once and call them many times...
+
+modules -> resource defnition and arguements are same. only values are different
