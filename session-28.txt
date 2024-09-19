@@ -1,0 +1,121 @@
+advantages
+---------------
+code reuse
+updates are easy and centralised
+best practices can be enforced
+you can restrict user using few options as per project standards
+
+
+VPC --> Virtual private cloud
+-----------------------
+business is restaurant orders
+
+physical space
+buy servers
+power connection
+network connection
+security gaurd
+cooling
+OS resources, network resources
+maintance
+
+Cloud resource with cloud account
+
+It is a isolated datacenter in cloud. resources created inside vpc is completely private...
+
+frontend server --> public must access this
+backend server --> secure, public should not access this. dont create public ip and no internet
+mysql server --> all users and orders data, cards, etc...dont create public ip and no internet
+
+You have to seperate servers logically inside VPC...
+
+subnetting
+
+village name, pincode --> VPC name, CIDR
+streets name, number --> subnets name, CIDR
+roads --> routes
+main road --> internet connection, internet gateway
+main gate of house --> security group/firewall
+house --> server
+
+CIDR --> classless interdomain routing
+
+192.178.3.4 --> 4 octates
+
+255.255.255.255 --> Max IP
+
+10.0.0.0/16 --> CIDR
+
+total IP address bits are 32. possible IP address are 2^32
+
+10.0.0.1
+10.0.0.2
+.
+.
+.
+10.0.0.255
+
+10.0.1.0
+10.0.1.1
+.
+.
+.
+10.0.1.255
+
+2^16 = 65,536
+
+10.0.0.0/24 --> first 3 are blocked
+
+10.0.0.255
+
+10.0.1.0/24 --> 10.0.1.0 ... 10.0.1.255
+10.0.2.0/24 --> 10.0.2.0, 10.0.2.1 .... 10.0.2.255
+
+10.0.1.0/32
+
+VPC creation
+subnet creation
+igw creation
+
+public and private subnet
+-------------------------
+subnet which has internet connection is called as public subnet. private/app subnet will not have internet connection as routes. database subnet is also called as private subnet
+
+10.0.0.0/16 --> internal roads
+
+create vpc
+create igw and associate with VPC
+create public, private and database subnets
+create public, private and database route table
+create routes inside route table
+associate route tables with appropriate subnets
+created elastic IP
+created NAT gateway
+added NAT routes in private and database subnets
+
+secure servers can't be reached directly...this is incoming/ingress traffic
+traffic from the servers ... outgoing/egress traffic
+
+database --> yum install mysql-server --> outgoing
+
+what is NAT --> this is the mechanism private servers connects to internet for outgoing traffic like packages installation, security patches downloads
+
+NAT --> when server stops and starts IP address will change.It should have same IP always
+
+static IP/ elastic IP
+
+High availability
+-------------------
+HYD --> Region
+east hyderabad --> AZ
+west hyderabad --> AZ
+
+1 public subnet in us-east-1a, 1 public subnet in us-east-1b
+1 private subnet in us-east-1a, 1 private subnet in us-east-1b
+1 database subnet in us-east-1a, 1 database subnet in us-east-1b
+
+
+EC2 Module
+------------
+it should accept count/instance_names
+use instance_names inside tags
