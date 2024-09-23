@@ -98,3 +98,8 @@ ami
 sg-id
 instance_type
 key_pair
+
+ansible playbook.yaml = ansible -v playbook.yaml
+
+ansible -vv playbook.yaml
+ansible -vvv playbook.yaml

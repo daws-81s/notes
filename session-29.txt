@@ -1,0 +1,57 @@
+- Terraform is an IAC (Infrastructure as Code) tool
+- Automate, reuse, version controlling
+- Hashicorp, hcl (Hashicorp language)
+- Declarative
+- What ever we give, it will create
+
+- resources
+- provider
+- provisioners
+- functions
+- variables
+- local-exec
+- remote-exec
+- data sources
+- state and remote state
+- locking
+- modules
+- loops
+- workspaces
+- tfvars
+- conditions
+- locals
+
+- What is the difference between normal variable declaration and locals?
+A) We can write expressions and evaluate them using locals
+
+- Can you use count-based loop inside locals?
+A) No
+
+- terraform init
+  - -reconfigure
+  - -backend-config
+  - -upgrade
+- terraform validate: It perform syntax check and validates our code
+- terraform plan
+  - -var-file
+- terraform apply
+- teraform fmt
+- terraform destroy
+- terraform state show
+- terraform workspace
+
+- -upgrade: It is usually used to upgrade the latest version of the module source code
+
+- terraform taint: Using this command, you could taint a terraform resource
+- modules: 
+  - Root module: terraform-aws-ec2
+  - Child: ec2-module-demo
+  
+- terraform state:
+  - Desired state: What you desire
+  - Current state: What is your current infra that terraform is managing
+
+- How to handle a situation when a state file is deleted or corrupted?
+A) We need to import the resources that are part of the terraform code into its state file and we do it using: terraform import
+
+terraform import aws_instance.web i-0bec8c7d30e5ab951
