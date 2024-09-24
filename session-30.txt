@@ -1,0 +1,47 @@
+Create VPC -> 10.0.0.0/16 --> 2^16 IP address
+Create igw
+associate igw to vpc
+create subnets --> Public, private and DB
+EIP
+NAT
+created route tables and added routes
+	Public --> Internet connection through IGW
+	Private --> NAT, egress connections
+route table associations with subnets
+
+
+terraform naming resources
+-----------------------------
+1. terraform resource name --> use _, no upper case
+2. dont repeat resource type in name
+3. if only one resource of its type, name it as main or this
+4. Use - inside arguments values and in places where value will be exposed to a human
+5. use plural if multiple resources
+
+https://www.terraform-best-practices.com/naming
+
+common tags --> common for all resources under this project
+resource tags --> vpc_tags
+
+vpc --> expense-dev
+
+HA --> atleast 2 AZ
+
+public --> 1a, 1b --> 10.0.1.0/24, 10.0.2.0/24
+private --> 1a, 1b --> 10.0.11.0/24, 10.0.12.0/24
+database --> 1a,1b --> 10.0.21.0/24, 10.0.22.0/24
+
+1. get the AZ
+2. get first 2
+
+0,1 --> only 0th element
+0,2 --> 0th element, 1st element
+
+expense-dev-public-us-east-1a
+
+we need to create database_subnet_group --> all database subnets under a group
+
+1. command line
+2. tfvars
+3. default
+4. 
