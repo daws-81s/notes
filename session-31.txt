@@ -1,0 +1,56 @@
+vpc
+igw
+public private database subnets in 1a and 1b AZ
+eip
+natgateway
+
+route tables
+routes
+associations with subnets
+
+expense-dev-public
+
+associations
+--------------
+1 public rt --> 2 public subnets
+
+Peering
+-------------
+
+dev vpc prod vpc
+by default vpc are not connected with each other
+
+VPC peering can establish between two VPC.
+VPC CIDR should be different, they should not overlap...
+
+VPC-1 --> 10.0.1.123
+10.0.1.122 --> 10.0.1.123
+
+VPC-2 --> 10.0.1.123
+
+same account
+---------------
+same region and diff VPC can peer
+diff region and diff VPC can peer
+
+2 accounts
+---------------
+diff account same region diff VPC can peer
+diff account diff region diff VPC can peer
+
+
+Peering
+----------------
+ask user whether he wants VPC peering or not. if he say yes our module will connect with default vpc in the same region
+
+persons = ["ramesh","suresh","raheem","robert"]
+
+persons[1]
+
+persons = ["john"]
+
+persons[0]
+
+public servers
+backend servers
+database servers
