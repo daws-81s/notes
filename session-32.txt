@@ -1,0 +1,37 @@
+mysql
+backend
+frontend
+
+expense-dev-mysql
+
+expense-vpc
+expense-sg
+expense-mysql
+
+/roboshop/prod/vpc_id
+/roboshop/dev/vpc_id
+
+
+your-repo
+--------------------
+module "your_name" {
+	args-as-per-module-definiton = your-value
+	enable_dns_hostnames = var.dns_hostnames
+}
+
+variables.tf
+------------
+variable "dns_hostnames"{
+	default = false
+}
+
+module.your_name.<output-parameter-name>
+
+module == function == inputs --> outputs
+
+10.0.0.0/16
+
+10.1.0.0/16
+
+1. custom modules
+2. open source modules
