@@ -1,0 +1,51 @@
+Mysql --> backend
+
+Mysql
+-------
+3306
+Port no: 3306
+IP: backend private IP
+private IP will not change after restart, public ip will change after restart
+private IP may not same after termination and creation..
+
+
+MYSQL SG will allow Backend SG
+3306
+Port no: 3306
+Source: Backend SG --> MySQL will allow connection from instances which are attached to Backend SG
+
+backend --> frontend
+8080
+source: frontend sg
+
+
+frontend --> public --> 0.0.0.0/0
+80
+CIDR
+
+1. Bastion
+2. VPN
+
+Open source modules with AWS contribution
+1. We no need to develop the module
+
+1. We need to depend on community
+2. We dont have freedom to do changes if required
+
+Custom Modules
+----------------
+1. We have freedom to develop whatever we want
+
+1. We have to develop everything
+
+["subnet-1","subnet-2"] --> list
+subnet-1,subnet-2 --> StringList
+
+StringList --> List == ["subnet-1","subnet-2"] --> subnet[0]
+
+ec2 instance user data
+-------------------
+when instanc created, AWS will run this user instructions with root access automatically
+
+
+
