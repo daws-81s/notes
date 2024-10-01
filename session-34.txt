@@ -1,0 +1,69 @@
+expense-infra-dev
+-------------------
+
+stateful vs stateless
+
+stateful --> which has state, i.e data
+stateless --> which don't have state.
+
+DB --> stateful, it keeps track of the data
+backend/frontend --> stateless
+
+DB
+-------
+backup --> hourly, daily, weekly backups
+restore test
+data replication --> 
+DB-1 is connected to application
+DB-2 is not connected to application, but replicate data from DB-1
+
+HYD --> DB-1, MUM --> DB-2
+storage increment
+load balancing
+upgrades
+
+RDS --> load balancing, auto storage increment, backups/snapshots, etc..
+
+ExpenseApp1
+
+8.0.35 --> 8.0.36
+8.0 --> 8.1 --> 9
+
+rds opensource module
+
+mysql-dev.daws81s.online --> expense.czn6yzxlcsiv.us-east-1.rds.amazonaws.com
+
+snapshot/backup --> destroy --> final snapshot(VPC)
+
+Load Balancing and Auto Scaling
+--------------------------------
+
+DM --> Client
+
+work --> UI work --> UI team lead --> team members
+Backend work --> Backend team lead --> team members
+who is available to work, team lead will assign
+
+team --> target group
+team lead --> load balancer
+listener and rules --> He is listening for UI work, Backend team lead is listening for backend work
+who is available --> health check
+members --> servers
+
+if backend server is running we can hit that on 8080, if not running we can't hit
+
+
+8080, 80 --> servers are listening on these port
+
+http://3.94.106.200/ --> 2XX
+
+LB Listener --> 80 --> nginx --> 80 --> 2 instances --> lb will check which instance is healthy --> randomly 1 server
+
+Auto scaling
+------------------
+2 members --> 16 hr work
+30 hr work --> our HR should recruit new members --> add them to our team
+
+JD --> Launch template(Options to create servers) --> place them inside target group
+
+CPU utilisation --> 75%
