@@ -1,0 +1,73 @@
+1. Project infra --> Basement to house --> rare changes
+2. Application infra --> Rooms and walls --> Yes
+
+Project Infra
+-----------------
+VPC --> VPC will not change frequently
+SG --> SG may not change, only rules may change
+Bastion --> No
+DB --> No
+Load Balancer --> No
+
+Applications
+------------------
+Ec2 instances
+target groups
+
+
+backend-dev.daws81s.online --> LB
+backend-dev.daws81s.online:8080
+
+Load Balancer
+----------------
+LB --> distributing the load to target group --> team lead
+TG --> A team of members --> A group of servers
+Server --> Team member --> Server
+Listener --> Team Lead Phone number --> Port LB listening to
+Rules --> 
+
+host path and context path
+------------------
+
+Client --> BA --> Architect --> 
+backend --> Backend LB --> Backend TL
+frontend  --> Frontend LB --> Frontend TL
+database --> DB TL
+
+hostpath
+--------------
+backend.daws81s.online --> backend LB
+frontend.daws81s.online --> frontend LB
+
+Classic LB
+Application LB --> Layer7
+Network LB
+
+m.facebook.com --> mobile site
+facebook.com --> web site
+
+netbanking.hdfc.com
+demat.hdfc.com
+
+context path
+-----------------
+daws81s.online/backend
+daws81s.online/frontend
+
+app ALB --> app tier LB
+web ALB --> web tier LB
+
+
+mysql-dev.daws81s.online --> expense-dev.czn6yzxlcsiv.us-east-1.rds.amazonaws.com
+app-dev.daws81s.online --> App ALB
+web-dev.daws81s.online --> Web ALB
+daws81s.online --> domain
+web-dev.daws81s.online --> subdomain
+
+app-dev.daws81s.online
+------------------------
+app-dev.daws81s.online --> it will respond --> default response
+backend.app-dev.daws81s.online --> forward this request to backend TG
+
+fasdfghasfj.app-dev.daws81s.online
+
