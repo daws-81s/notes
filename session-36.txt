@@ -1,0 +1,63 @@
+VPN
+--------------
+user laptop --> VPN --> can access secure servers
+and company can monitor our traffic
+
+AMI --> Open VPN server is already installed and configured
+
+Launch this EC2 and we need to little configuration
+
+OpenVPN Access Server Community Image-fe8020db-*
+
+22, 943, 443, 1194 --> VPN ports
+
+key is mandatory for this
+
+ssh -i ~/.ssh/openvpn openvpnas@public-IP
+
+https://35.170.248.89:943/admin
+openvpn, Admin@1234
+
+VPN SG, VPN SG Rules
+create key pair for VPN access
+VPN instance with Open VPN
+openvpnas is the user name
+configure with default options
+https://35.170.248.89:943/admin
+openvpn, Admin@1234
+
+download openvpn connect
+https://35.170.248.89:943
+openvpn Admin@1234
+
+Backend
+--------------------------
+1. create ec2 instance
+2. configure with backend 
+
+if there is a new version
+-----------------
+I can connect all the instances using ansible and run the playbook
+
+stop the server
+remove old code
+download new code
+restart the server
+
+if there is traffic increase
+-------------------
+1. create ec2 instance
+2. configure with backend 
+
+
+create ec2 instance
+configure using ansible
+stop the instance
+take AMI --> Launch template
+launch it using autoscaling
+
+when traffic increase
+use AMI to add the servers
+
+target group
+ALB rules
