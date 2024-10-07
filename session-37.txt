@@ -1,0 +1,34 @@
+create ec2 instance
+configure it using ansible
+stop the server
+take AMI --> with new version
+delete the instance
+
+create launch template
+	ami, network, sg, etc.
+create target group
+create ASG using launch template and place them in TG
+create rule in load balancer
+
+create ansible server and provide backend ec2 instance
+ansible can connect to it...
+
+provisioners
+	local and remote
+
+I need to use remote provisioner, connection block
+
+null resource and trigger
+
+null resource --> It will not do anything, means it wont create any resource. But useful for provisioners
+
+terraform --> Shell --> Ansible
+
+if you have existing folder how can you make it as git repo
+------------------------------------------------------------
+we need to intialise git
+git init
+
+git branch -M main
+
+aws ec2 terminate-instances --instance-ids instance-id1
