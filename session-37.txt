@@ -32,3 +32,7 @@ git init
 git branch -M main
 
 aws ec2 terminate-instances --instance-ids instance-id1
+
+for i in $(ls -dr */) ; do echo ${i%/}; cd  ${i%/} ; terraform destroy -auto-approve ; cd .. ; done
+
+for i in $(ls -d */) ; do echo ${i%/}; cd  ${i%/} ; terraform apply -auto-approve ; cd .. ; done
