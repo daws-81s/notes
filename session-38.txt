@@ -1,0 +1,22 @@
+Create EC2
+Configure EC2 Using ANsible and provisioner
+	remote provisioner
+	variables in terraform --> Shell script --> ansible-pull
+stopped EC2
+take AMI
+delete the instance
+
+LB, Listener, Default rule
+
+target group
+launch template
+
+:8080/health
+
+for i in 10-vpc 20-sg 30-bastion 40-rds 50-app-alb 50-vpn; do cd $i ; terraform apply -auto-approve ; cd ..; done
+
+2 instances --> 60 80
+
+backend.app-dev.daws81s.online --> forward this backend target group
+
+expense-dev.daws81s.online --> expense website

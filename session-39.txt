@@ -1,0 +1,50 @@
+EC2
+configure
+stop
+AMI
+delete instance
+target group
+launch template
+auto scaling group
+autoscaling group policy
+
+ALB Rule
+
+R53 --> ALB --> Listener --> Rule --> Target group --> Health Check --> Instance
+0 1 2 3 4
+
+backend.app-dev.daws81s.online
+
+app-dev.daws81s.online
+
+catalogue.app-dev.daws81s.online
+user.app-dev.daws81s.online
+shipping.app-dev.daws81s.online
+
+zeal vora --> AWS security specialist
+
+Rolling update
+-----------------
+4 instances --> 2 instances
+
+1. stop all the backend services in all instances and update the application using ansible
+2. create one new instance using new version, once this is up, delete one old instance	
+	create second instance and delete one more old instance
+	create third instance and delete one more old  instance
+	create fourth instance and delete one more old instance
+	
+https/SSL/TLS --> certificates
+
+We need domain
+
+hdfcbank.com --> https://hdfcbank.com:443
+
+they will check authorization of your domain
+
+certificate provider
+
+expense-dev.daws81s.online
+expense-qa.daws81s.online
+
+*.daws81s.online
+
