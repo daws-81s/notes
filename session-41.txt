@@ -1,0 +1,18 @@
+CDN
+------------
+Cloudfront is a content delivery network service of amazon. AWS have edge locations edge locations to cache the content across the globe. we can make use of this service to reduce latency to our customers...
+
+Origin --> where is your source. It can S3, ALB, Api gateway, etc.
+Cache behaviour --> How and what you want to cache
+invalidations -> When there is a update, you can create invalidations so that edge location pull the content newly.
+
+cache order
+-------------
+/images/* --> expense.cdn.daws81s.online/images/* --> it will cached
+/static/* --> expense.cdn.daws81s.online/static/* --> it will cached
+default --> dynamic content --> expense.cdn.daws81s.online --> no cache
+
+cdn 			origin
+http--> https 
+
+http://expense-cdn.daws81s.online --> https://expense-cdn.daws81s.online 

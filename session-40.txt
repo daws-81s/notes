@@ -1,0 +1,50 @@
+Create EC2
+Configure it
+	You should have playbooks ready
+	remote provisioner
+	terraform variables --> Shell --> ansible
+	ansible-pull
+stop ec2
+take ami
+delete instance
+
+create target group
+create launch template
+
+autoscaling --> launch template target group
+autoscaling policy
+ALB rules
+
+R53 --> ALB --> Listener(80,443) --> Rule(host based routing) --> target group --> Instance
+
+ACM --> we should have domain
+
+request for the certificate
+create records in domain
+validation
+
+expense-dev.daws81s.online
+
+504 --> Gateway timeout
+
+ALB --> Server
+
+domains
+-----------
+daws81s.online
+
+backend.app-dev.daws81s.online --> APP ALB
+
+expense-dev.daws81s.online
+
+mysql-dev.daws81s.online
+
+CDN --> Cloudfront
+-------------------
+
+user --> ISP Caching servers --> Torrents
+
+Origin --> Where the original content exist
+cache --> static content (css, js, images)
+
+https://expense-dev.daws81s.online/static/media/3TierArch.0486e7150e53d305d1c2.png
