@@ -1,0 +1,153 @@
+Old enterprise vs monolithic vs microservices
+----------------------------------------------
+
+everything together --> frontend and backend
+
+frontend seperate backend, frontend sends API request. Backend responds with data in json format
+
+monolithic
+------------------
+user, cart, product catlogue, shipping, delivery, payment, customer support, reviews, etc.
+
+if there is even a small error in any module can bring the application down..custmers may not even browse for the products
+
+any change in any module should go for full deployment
+
+microservices
+---------------
+user
+cart
+catalogue
+shipping
+payment
+delivery
+reviews
+
+joint family vs 4 mem family vs individual
+
+
+independent house vs flat in apartment vs a pg room
+bare metal vs VM vs containers
+
+independent house
+--------------------
+advantages
+-------------
+privacy
+more space
+
+disadvantages
+-------------
+too much maintainance
+electricity, water, internet, gas, etc.
+construction time is very high
+cost is also very high
+
+flats in apartment
+-------------------
+advantages
+-------------
+less maintainance
+electricity, water, etc. can be taken care
+construction time is less
+cost is less
+
+disadvantages
+--------------
+less privacy
+
+PG room
+-----------------
+advantages
+----------
+no maintainance
+cost is veryyyyy less
+flexibility is veryyyyyyy high
+
+disadvantages
+------------
+no privacy
+
+
+100GB RAM 4TB HD
+Esxi Hypervisor
+
+ubuntu --> 4GB ram and 50GB HD
+centos --> 4GB ram and 50GB HD
+
+containers dont block the resources, they use resources dynamically
+
+
+Containers
+-----------------------------
+
+Docker
+
+AMI --> We selected on OS(1GB) + We configured (installation, code, depenedencies, servvices, etc) == AMI
+
+Image --> Bare min OS(10Mb) + We configured (installation, code, depenedencies, servvices, etc) == Docker image
+
+Bare min OS + Application run time + depenedencies + packages + code 
+
+when docker is installed a group called docker is created
+
+add ec2-user to the docker group
+
+sudo usermod -aG docker ec2-user
+exit and login again to get the effect
+
+
+docker commands
+------------------------
+image --> container
+container is the running instance of image
+
+docker ps --> checks the running containers
+docker images --> displays the images available in server
+docker pull <image-name> --> pulls the image from docker repository/hub
+
+nginx --> push to docker hub
+nginx --> push to docker hub
+
+username/image-name:version
+
+joindevops/nginx:1.0.0
+joindevops/nginx:1.0.1
+joindevops/nginx:1.0.2
+
+ramesh/nginx:2.0.0
+
+nginx:version
+
+nginx:latest
+
+alpine is the smallest image (10Mb) + Install nginx --> nginx:alpine-slim
+
+docker create <image-name>:version --> create container out of image
+docker start container ID --> start the container
+
+docker stop container id
+docker rm container id --> removes container
+docker rm -f container id --> stops running container
+docker rmi image-id
+
+docker run = docker pull + create + start
+
+docker run -d 
+
+host port and container port
+
+container is like a nano/mini server. It also have 0-65,535 ports
+
+-p <host-port>:<container-port>
+
+docker exec -it container-id bash
+docker inspect
+docker logs
+
+
+Dockerfile
+--------------------
+Dockerfile is used to build custom images. We can make use of docker instructions to create custome images
+
+FROM RUN CMD ENTRYPOINT COPY ADD ENV ARG WORKDIR USER
