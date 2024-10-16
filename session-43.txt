@@ -1,0 +1,70 @@
+FROM
+----------
+FROM should be the first instruction in Dockerfile. It represents base OS. There is an exception ARG
+
+Dockerfile
+
+FROM <base-os>
+
+RHEL-9: VM OS --> High memory
+almalinux == Rhel
+
+How you build docker image?
+
+docker build -t <image-name>:<version> . --> . represents current folder have Dockerfile file
+
+RUN
+------------
+RUN instruction is used to configure image like installing packages, configure, etc. RUN instruction runs at the time of image building.
+
+CMD
+------------
+CMD instruction runs at the time of container creation. It keeps container running
+
+systemctl start backend --> infinite time
+systemctl start nginx --> /etc/systemd/system/nginx.service
+
+systemctl only works for full server, it will not work for contianers
+
+nginx -g daemon-off --> runs nginx in foreground
+
+docker build --> image creation --> RUN
+docker run --> container creation --> CMD
+
+nginx:v1
+
+username/image-name:version
+
+docker tag cmd:v1 joindevops/nginx:v1
+
+docker login -u <user-name>
+
+docker push joindevops/nginx:v1
+
+docker pull joindevops/nginx:v1
+
+LABEL
+----------
+it adds metadata to the image, description, who is the owner, which projects. LABELS are used to filter the images
+
+EXPOSE
+---------
+used to let the users know what are the ports this container will open when it runs.. EXPOSE instruction will not effect functionality it will only gives information
+
+ENV
+----------
+sets the environment variables, these can be used inside container
+
+COPY
+-----------
+used to copy files from local to image.
+
+ADD
+-----------
+ADD also does same as copy, but it has 2 extra capabilities
+1. It can get files from internet
+2. It can extract the files into image
+
+connect to backend server and manually try to connect
+telnet 
+

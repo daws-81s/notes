@@ -1,0 +1,64 @@
+docker build -t username/imagename:version . --> Dockerfile is required in current folder
+docker tag imagename:version username/imagename:version
+docker login
+docker push username/imagename:version
+docker run -d -p 80:80 username/imagename:version
+docker exec -it username/imagename:version bash
+
+FROM --> Should be the first instruction to refer base OS
+RUN --> installing packages and configuring image. runs at build time
+CMD --> Runs at container creation time, it keeps container running ["command-name", "params"]
+LABEL --> adds metadata to the image, useful while filtering the images
+EXPOSE --> informs about the ports opened by container, cant' really open the ports, just as a information to user
+COPY --> copies the files from workspace to image
+ADD --> 1. can download files directly from internet, can untar directly into image
+ENV --> sets the env variables to the container
+
+ENTRYPOINT
+-------------
+
+docker run -d from:v1
+
+1. CMD can be overridden at runtime
+2. You can't override ENTRYPOINT like CMD. If you try to do it will go and append to the entrypoint command
+3. for better results and best practices. CMD can provide args to ENTRYPOINT, So you can mention default args through CMD and you can override them at run time..
+
+USER
+-------------
+for security you should not run containers using root user, it must be on normal user. Atleast last instruction should USER <some-username>
+
+WORKDIR
+--------------
+is used to set the current working directory inside docker image
+
+ARG
+--------------
+ARG is used to set the variables at build time onnly, not inside the container
+
+
+ARG vs ENV
+---------
+1. ENV variables can be accessed in image build time and container both.
+2. ARG is only accessed at the time of image creation.
+3. You can use ARG instruction before FROM in one special case i.e to supply version to the base image.
+4. ARG instruction before FROM is only valid until FROM, it cant be accessed after FROM
+
+How can I access ARG values inside container?
+You can set arg value to env variable
+
+ENV var-name=$var-name
+
+ONBUILD
+---------
+is used to trigger few instructions at build when a user is using our image.
+
+MySQL
+--------------
+1. I take one base OS like almalinux:9
+2. install mysql server
+
+can I directly take mysql server official image.
+
+Mysql --> They can run few sql command to configure server
+
+Backend --> backend can connect to mysql server and run the queries.
