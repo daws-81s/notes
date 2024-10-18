@@ -1,0 +1,11 @@
+Docker network
+-----------------
+every VM get access to internet from AWS ISP.172.31.27.183
+
+docker0: is a virtual n/w interface 172.17.0.1. It acts as modem to the containers inside VM.
+
+
+Backend
+-------------
+
+docker containers can't be communicated using default network. You have to create your own network.
