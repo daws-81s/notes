@@ -1,0 +1,82 @@
+1. minimal images
+
+alpine base image + node js 20 install
+
+docker images are layer based, images are immutable
+
+1. FROM:node --> this will be pulled from docker hub
+docker creates a container from 1st instruction and runs 2nd instruction inside it - C1
+2. EXPOSE 8080
+once 2 nd instruction runs, it will create a image from this container - I1
+3. docker creates a container from I1 image, C2
+runs 3rd instruction inside C2 container
+ENV DB_HOST="mysql"
+docker creates image from C2 container that is I2
+4. docker creates container from I2 images, i.e C3
+
+
+Ramesh
+-------------
+FROM node:20.18.0-alpine3.20 --> I1
+EXPOSE 8080 -> I2
+ENV DB_HOST="mysql" -> I3
+RUN addgroup -S expense && adduser -S expense -G expense --> I4
+
+120MB
+
+Suresh
+--------------
+FROM node:20.18.0-alpine3.20
+EXPOSE 8080
+ENV DB_HOST="mysql"
+RUN addgroup -S expense && adduser -S expense -G expense
+RUN mkdir expense
+
+Rahim
+-----------
+FROM node:20.18.0-alpine3.20
+EXPOSE 8080 
+ENV DB_HOST="mysql" -> I3
+USER expense
+
+frequently changing instructions should be bottom of the dockerfile, we can save build time and memory of the layers
+
+docker images are working based on layers..
+every instruction creates intermediate container and run the next instruction inside it
+then it saves the container as image layer, intermediate container will be deleted
+to run next instruction docker creates intermediate container again from this image
+it goes on, at each step intermediate containers are removed
+each layer is cached, when you push  it pushes the layers
+
+multi stage builds
+------------------
+development and running
+
+JDK, JRE
+JDK --> Java development kit
+JRE --> Java runtine environment
+.jar file is the output of build
+for nodejs project we get node_modules as build, now we need our code and node_modules
+
+JDK > JRE. JRE is subset of JDK
+
+npm install --> node_modules --> usually creates some cache
+
+
+it looks like 2 dockerfiles inside 1..
+
+1 dockerfile we use it for build
+
+we copy the output in 2nd dockerfile
+
+we restrict docker for image building, running the images as containers we will use kubernetes
+
+Docker architecture
+----------------------
+client --> docker command
+docker host/daemon --> docker service running
+
+docker run -d -p 80:80 nginx
+docker daemon checkes whethe image exist local or not, if exist it will run
+if not exist, it will pull registry/hub, create a container out of it, run it and send the output to the client
+

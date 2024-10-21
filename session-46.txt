@@ -1,0 +1,39 @@
+/var/lib/docker
+
+Docker Networking:
+
+1. host
+2. bridge --> default
+3. overlay --> Between multiple docker hosts
+
+host:
+1. contianers using host n/w will not get IP address.
+2. it means containers are sharing host IP address
+3. containers open host port
+
+mysql --> 3306 --> host port
+backend --> 8080 --> host port
+frontend --> 80 --> host port
+
+Volumes
+-----------
+containers are ephemeral. Once you remove container you lose data. data is not persisted by default. 
+
+1. un named volumes
+2. named volumes
+
+mount the storage in host to the container
+
+-v host-path:container-path
+
+named volumes
+--------------
+docker volume create nginx-data
+
+expense
+---------------
+create network
+create volume
+mysql
+backend
+frontend
