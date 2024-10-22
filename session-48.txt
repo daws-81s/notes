@@ -1,0 +1,136 @@
+1. building the images --> Dockerfile
+2. running the images --> Containers(docker compose)
+
+we have to create a user and group
+all the related mysql directories we should give permissions to this group and user
+
+/var/lib/mysql
+/var/run/mysqld
+/docker-entrypoint-initdb.d
+
+disadvantages
+---------------
+1 PG 50 rooms...
+no water for 5 days
+
+another 5 PG. either he get water from there or he shift persons to another PG
+
+there is no relibility since there is only one docker host...
+there is no autoscaling
+there is no load balancing
+volumes are inside docker host..poor volume management
+security. no secret management
+no communication between containers in another host.. network management is not good
+
+
+orchestration
+-----------------
+100 PG --> He need a person to manage everything
+
+kubernetes
+-------------------
+kubectl --> k8 client command
+eksctl --> command to create, update and delete cluster. managing cluster
+
+
+setup
+--------------------
+assignment
+-------------
+1. there is a docker host running
+2. no space left on device
+3. you need to add extra disk to the running instance
+4. make sure docker directory /var/lib/docker is mounted to new disk
+5. migrate existing data to new mount
+
+create one t3.micro server. make sure you have atleast 50GB. assign more storage to /var
+install docker
+
+install kubectl
+----------------
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.31.0/2024-09-12/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv kubectl /usr/local/bin/kubectl
+kubectl version
+
+
+install eksctl
+--------------
+# for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
+ARCH=amd64
+PLATFORM=$(uname -s)_$ARCH
+
+curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
+
+# (Optional) Verify checksum
+curl -sL "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_checksums.txt" | grep $PLATFORM | sha256sum --check
+
+tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
+
+sudo mv /tmp/eksctl /usr/local/bin
+
+
+run aws configure
+
+
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: expense-1
+  region: us-east-1
+
+managedNodeGroups:
+  - name: ng-1
+    instanceType: m5.large
+    desiredCapacity: 10
+	spot: true
+	
+eksctl create cluster --config-file=eks.yaml
+
+	
+spot instances
+------------------
+AWS have huge data center. there may be unused capacity in data center
+
+spot instances --> 90% discount. when AWS requires capacity to ondemand clients they take back instances with 2min notice...
+
+
+kubectl get nodes --> how many nodes are there in cluster
+
+Resources
+-----------------
+namespace --> just like VPC, you will have a dedicated isolated project to create your workloads/resources
+
+apiVersion:
+kind: Namespace
+metadata:
+	name:
+	labels:
+spec:
+
+pod
+----------------
+pod is the smallest deployable unit in kubernetes. pod can contain one or many containers.
+
+pod vs container
+------------------
+1. pod is the smallest deployable unit in kubernetes
+2. pod can contain one or many containers.
+3. containers in a pod can share same network identity and storage
+4. these are useful in sidecar and proxy patterns
+
+kubectl exec -it nginx -- bash
+
+pod-1 have nginx container is there
+pod-2 can have nginx container or not?
+
+pod-2
+---------
+1. nginx
+2. nginx with name also nginx
+3. 
+
+CrashLoopBackOff
+-----------------
+container is not able to start
