@@ -1,0 +1,39 @@
+kubectl describe pod <pod-name>
+
+ENV in image defition vs env in manifest
+----------------------------------------
+env in Dockerfile should rebuild if you change
+env in manifest no need to rebuild, just restart is enough
+
+resource utilisation
+-----------------------
+if something goes wrong in loop, it will occupy entire host resources. We need to allocate resources to the container.
+1 cpu = 1000m cpu
+softlimit --> 100m cpu, 68Mi 
+hardlimit --> 120m cpu, 128Mi
+
+without touching the actual code, we need to change the value --> variables
+
+How can you access your pod in internet or outside?
+
+pod IP are ephemeral
+by exposing to services
+
+DNS to pod and load balancer as well
+
+1. cluster IP --> default. only for internal pod to pod communication...
+2. node port
+---------------
+open a port on node/host
+3. load balancer
+
+services select pods using labels
+selector:
+    app.kubernetes.io/name: proxy
+
+labels
+---------
+is single lable enough?
+
+narayana --> naaarayaaanaaaa
+

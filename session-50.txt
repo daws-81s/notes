@@ -1,0 +1,48 @@
+k8 resources
+-----------
+namespace
+pod
+	resources
+	env
+	label
+	annotations
+configmap
+secret
+
+services
+	cluster IP
+	nodePort
+	LoadBalancer
+LoadBalancer > nodePort > cluster IP
+Pod to Pod communication using and Load balancing. expose your pod using service to access from internet
+
+kind:
+apiVersion:
+metadata:
+	name:
+	labels:
+spec:
+
+Sets
+-------
+ReplicaSet
+DeploymentSet
+DaemonSet
+StatefulSet
+
+ReplicaSet
+-----------
+makes sure your desired number of pods running all the time
+
+replicaset --> 3 pods nginx
+replicaset cant update the image version. its only responsibilities is to main desired number of replicas..
+
+deployment
+-----------
+nginx-c8bb98ddc-6qmc9
+
+deployment will create replicaset. so replicaset is subset/part of deployment
+
+sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
