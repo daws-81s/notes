@@ -1,0 +1,56 @@
+Volumes in kubernetes
+=====================
+external HD --> Offline, near to our computer, more speed
+google drive --> Online, somewhere in network, less speed
+
+EBS and EFS
+
+Static Provisioning
+Dynamic Provisioning
+
+Static Provisioning
+--------------------
+EBS
+
+1. We need to create volumes
+2. We need to install the drivers.
+3. EKS nodes should have permissions to access EBS volumes.
+
+node is in us-east-1b. can I create disk in us-east-1d?
+
+vol-0e534628d19fc28f4
+install drivers
+-----------------
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.36"
+
+Persistant Volumes and Persistant volume claim
+----------------------------------------------
+k8 created a wrapper objects to manage underlying volumes. because k8 engineer will not have full idea on volumes.
+
+PV --> It represents the physical storage like EBS/EFS.
+
+pods should claim PV to access that....
+
+1. is that namespace level or not?
+2. if not namespace level that is cluster level. admin should create the resource
+
+expense project devops engineer got a requirement to have a volume
+-----------------------------------------------------------------
+1. you should an email to storage team to create disk. get the approval from manager. they create disk.
+2. you send email to k8 admin to create PV and provide them disk details.
+
+no it's your turn. pvc and claim in the pod
+
+
+dynamic provisioning
+-------------------------------
+1. install drivers
+2. give permissions ec2 nodes
+
+storageClass
+-----------------
+admin creates one storage class for EBS for expense project. 
+
+annotation --> curl nginx
+
+nginx service --> nginx pod
