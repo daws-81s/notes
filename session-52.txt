@@ -1,0 +1,65 @@
+EFS
+----------
+elastic file system
+
+1. EBS is block store, EFS is like NFS(Network file system)
+2. EBS should be as near as possible. EFS can be anywhere in network
+3. EBS is fast compared to EFS
+4. EBS we can store OS, Databases. EFS is not good OS and DB
+5. EFS can increase storage limit automatiaclly.
+6. Files are stored in EFS.
+
+1. create EFS volume
+2. install drivers and allow 2049 traffic from EKS worker nodes
+3. give permision to EKS nodes
+4. create PV
+5. create PVC
+6. claim through pod using PVC
+7. open node port in EKS worker nodes
+
+kubectl kustomize \
+    "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-2.1" > public-ecr-driver.yaml
+
+aws eks --region us-east-1 update-kubeconfig --name expense
+
+EFS SG should allow traffic on 2049 from the SG attached EKS worker nodes.
+
+1. storage class create
+
+Expense
+------------
+mysql is a stateful application
+
+statefulset vs deployment
+-----------------------------
+statefulset is for DB related applications.
+deployment is for stateless applications.
+
+statefulset will have headless service along with normal service. statefulset requires pv and pvc objects.
+deployment will not have headless service. 
+
+statefulset pods will be created in orderly manner. 
+statefulset will keep its pod identity. Pod names will created as -0, -1, -2, etc.
+
+nslookup nginx -> all end points
+
+what is headless service?
+headless service will not have cluster IP, if anyone does nslookup on headless service it will give all end points
+
+
+1. create expense namespace
+2. install ebs drivers
+kubectl apply -k "github.com/kubernetes-sigs/aws-ebs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.36"
+3. create ebs sc
+
+4. give eks nodes ebs permission
+5. create pvc, create statefulset
+
+nslookup mysql-headless
+Server:         10.100.0.10
+Address:        10.100.0.10#53
+
+Name:   mysql-headless.expense.svc.cluster.local
+Address: 192.168.0.57
+Name:   mysql-headless.expense.svc.cluster.local
+Address: 192.168.10.99
