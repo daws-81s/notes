@@ -1,0 +1,53 @@
+HPA
+Helm charts
+
+Scaling
+----------
+1. Horizontal
+2. Vertical
+
+Vertical --> Only one building, downtime is there
+Horizontal --> multiple buildings, no downtime
+
+Server --> traffic increase
+
+Same server --> Stop the server, increase CPU and RAM then restart
+Diff servers --> number of servers increases based on traffic
+
+Percentage --> Max value (100)
+
+Containers can consume all server resources if something goes wrong. we have to mention resource requests and limits
+
+100m --> CPU
+60m --> 60%
+
+You should have metrics server installed
+You should mention resources section inside pod
+Once above things are done, we can attach HPA to deployment
+
+curl -sS https://webinstall.dev/k9s | bash
+
+Helm charts
+------------
+Helm charts is a package manager for kubernetes applications
+
+1. image creation --> Dockerfile
+2. how to run image --> Docker compose/manifest
+
+popular tools have opensource images...and opensource manifest also
+
+1. to templatise manifest files
+2. to install custom or popular applications in kubernetes like CSI drivers, metrics server, prometheru/grafana
+
+
+
+helm install <chart-name> . --> . represents there is Chart.yaml in current folder
+
+helm repo add aws-ebs-csi-driver https://kubernetes-sigs.github.io/aws-ebs-csi-driver
+
+helm repo update
+Install the latest release of the driver.
+helm upgrade --install aws-ebs-csi-driver \
+    --namespace kube-system \
+    aws-ebs-csi-driver/aws-ebs-csi-driver
+
