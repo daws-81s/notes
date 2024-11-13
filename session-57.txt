@@ -1,0 +1,56 @@
+Revise ingress controller
+init containers
+liveness and readiness probe
+how to use configmap as volume
+
+ingress controller
+----------------------
+Ingress controller is used to provide external access to the applications running inside k8. in EKS we can use ALB as ingress controller.
+
+We install aws load balancer controller to connect with ALB and provide permission to EKS.
+
+We have a resource a called ingress to create ALB, Listeners, rules and target groups
+
+
+eksctl utils associate-iam-oidc-provider \
+    --region us-east-1 \
+    --cluster expense \
+    --approve
+
+curl -o iam-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.10.0/docs/install/iam_policy.json
+
+
+eksctl create iamserviceaccount \
+--cluster=expense \
+--namespace=kube-system \
+--name=aws-load-balancer-controller \
+--attach-policy-arn=arn:aws:iam::315069654700:policy/AWSLoadBalancerControllerIAMPolicy \
+--override-existing-serviceaccounts \
+--region us-east-1 \
+--approve
+
+liveness probe and readiness probe
+-----------------------------------
+self healing.. auto restart. if your app is not working, k8 can auto restart your application
+
+liveness probe --> health check
+readiness probe --> ready to accept traffic
+
+mysql backend
+
+when port 8080 is opened, then we can say mysql is ready
+
+init containers
+----------------------
+before backend starts, we need to make sure DB is running and accessable
+
+-> we can run init containers before main containes run. It can be or many.
+-> init containers should be ready before main container runs
+-> If init container fails, main container will not run.
+-> Init containers goes to completion state.
+-> to set configuration and check external dependency apps status we can make use of init containers
+
+for i in {1..100}; do sleep 1; if nslookup mysql; then exit 0; fi; done; exit 1
+
+application code and configuration
+-----------------------------------

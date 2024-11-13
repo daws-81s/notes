@@ -1,0 +1,48 @@
+Taints and Tolerations
+Affinity and anti affinity
+
+kube-scheduler --> responsible to schedule pods on to worker nodes
+
+nodeSelector:
+	label-key: value
+
+taints and tolerations --> to repel the pods. We can mark the node as tainted so that scheduler will not schedule any pods on to it...
+
+if you apply tolerate scheduler can schedule the pods on to tainted nodes, but not gaurenteed.
+
+1. project specific worker nodes
+2. special hardware. gpu based servers
+
+pod affinity
+------------
+2 replicas are running
+we will inform backend pod to run where cache is running --> pod-affinity
+
+Ingress Controller
+------------------
+If we want give internet access to our app running in K8 we have to provison ingress controller. We are using ALB as our ingress controller. We installed aws load balancer controller drivers through helm charts and given appropriate permissions.
+
+We create ingress resource/object for the apps that requires external access
+
+HDFC --> k8 cluster
+
+netbanking.hdfc.com --> netbanking
+corporatebanking.hdfc.com --> C banking
+
+Classic LB --> By default it creates classic load balancer
+	it is not intelligent
+	it can't route traffic to different target groups
+	it is not recommend by AWS
+	
+ALB
+	it is intelligent
+	it routes traffic to multiple tg based on host or context rules
+	it works on layer-7
+
+m.facebook --> mobile fb target group
+facebook.com
+
+https://app1.daws81s.online --> app1
+https://app2.daws81s.online --> app2
+
+Ingress resource
