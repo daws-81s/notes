@@ -1,0 +1,87 @@
+Coco cola drink
+----------------
+we will take one drink into lab seperately, change the formula. then we taste it as employees. if we dont like, we change the formula until we like it..
+DEV
+
+We will hire few tasters, we will give them drink. They provide some feedback. based on their feedback we will change again. Finally they liked it..
+QA
+
+We will do survey in multiple countries, we go to public. We randomly select 1lk members, collect feedback. if they like it we can release
+UAT
+
+Take Fassai permission about new composition.
+PRE-PROD
+
+Now we can release into market...
+PROD
+
+Git
+---------
+create repo
+git clone
+git add --> staging area
+git commit -m  "" --> commit to local repo
+git push --> push to central repo
+Git is a distributed version control system...
+
+Linus Torvalds --> 2005
+
+git init --> convert a folde into git repo. .git folder will be created
+git remote add origin <url>
+git branch -M main
+
+Branching
+----------------
+main --> points to production
+
+create another copy of the file, do the changes, carefully review the changes. if okay then edit into the main file
+
+create another branch from main branch
+do the changes
+test the changes
+scan the changes
+
+if everything is fine bring those changes into main branch
+
+SHA code --> 40char code
+
+e87bbd7883f2ddafc6243ae694acbfd18608ba17 --> our code
+
+1. if the commit id is changed, we can say code is changed
+2. if the code is changed, commit id also changed
+
+no body is allowed to do changes in main branch...
+pull request --> some one have to review before you merge changes into main branch.
+
+create another branch from main branch, do changes, create PR. get the approval then merge changes
+
+
+62918daf857b1c13127fb2d00e93b80bf77b13a7 --> merge commit
+
+-> Merge commit will have 2 parent commits.
+-> Merging preserves history, at any point you can track all the history of changes.
+-> Merge commit is an extra commit created by Git
+
+-> Rebase will not create extra commits.
+-> There is no history preserved in rebase since only one parent
+-> commit id will be changed in rebase
+
+if a branch is developed by multiple persons --> prefer merge
+
+if a branch is developed by single person --> go for rebease, make sure how rebease works
+
+
+e11be6beaf31fcddd606e311f4dfca0293493cee
+feb5c9dd5a89b88461df73008d10ea27441c0fa2
+
+How you resolve merge conflicts?
+Conflict comes when git finds diff code in the same line. Then git will give conflict. now developers should discuss and resolve conflicts. Git shows conflicts using less than and greater than symbols. We have to discuss and decide what code we can keep then remove the special char and proceed to commit.
+
+egg dosa
+------------
+2 members
+
+egg-dosa-suresh
+egg-dosa-ramesh
+
+a4741a26a58e9a5cd169cda43a889a2d9963db4c

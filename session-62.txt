@@ -1,0 +1,147 @@
+Branching strategy
+====================
+How you develop and how to release the application into production
+
+git flow
+==========
+1. main
+2. development
+
+these two are longlived branches for lifetime.
+
+shortlived branches
+=========
+feature
+release
+hotfix
+
+develop branch source is: main
+
+sprint-1 --> 4 weeks
+-------------------
+single feature or multiple features or few defects
+
+feature-video-call --> all developers use this branch to do code changes
+feature-whatsapp-status
+
+source: develop
+destination: develop
+
+changes are merged to develop branch using PR. changes are tested in develop environment
+
+if there are defects, create another feature branch. do the changes. again merge to develop branch. again test
+
+now develop env is done...
+
+release branch
+-------------------
+release/v1.2.3
+
+source: develop
+target: main and develop
+
+test the application in QA, UAT, etc. if there are defects. do the changes in release branch and test them in QA, UAT, etc.
+
+everything is good in all environments. then merge the changes to master/main branch. release the application into production. merge the changes into develop branch.
+
+hotfix branch
+------------------
+P0, P1, P2, P3, P4
+
+SLA --> service level agreement
+P0 --> severe, business is completely down. 30min
+P1 --> severe, may be 2hours
+P2 --> 
+P3 -->
+P4 -->
+source: main
+destination: main and develop
+
+whatsapp supports multiple versions at a time, android too..
+
+for web applications git model is very heavy, we can move to github flow or feature branching model...
+
+
+feature branch model
+============================
+main/master and feature
+
+one feature is only developed by one person...
+
+CICD process we can run every feature branch
+
+build, scan(all scans), unit test, deploy in dev, functionality test --> shift left process
+
+shift left is an important strategy in feature branching model.. it is including the scans and tests in the early stages of development instead of after development..
+
+we will create PR to main branch... now we can deploy to DEV, QA, UAT, PRE-PROD, perf basically NON-PROD envrionments
+
+finally we are going to PROD
+-----------------------------
+approval process.. change release process
+
+date, time
+
+a ticket is raised
+
+change type, which application
+change description
+date
+time
+approvals
+what if change is failed? roll back process
+tests report
+scans report
+sanity testing --> after release basic checks
+
+git reset vs git revert
+-------------------------
+these commands are for the purpose of undo the changes...
+
+workspace --> where we write code
+staging area --> changes are added to staging area from workspace
+commit area --> changes are commited to git from staging
+
+reset
+========
+useful before you push the changes to remote branches
+
+pull before push
+
+undo the changes done already. We have 3 options
+
+1. soft
+2. mixed --> default
+3. hard
+
+git reset --soft <commit-id> --> changes will be removed from commit and stayed in stagig area
+
+git reset HEAD~1
+
+git reset --hard HEAD~1 --> changes will be removed from commit, staging and workspace
+
+reset rewrites the history, it changes commit ids
+
+use reset only in local branches not remote branches..
+
+
+revert
+------------
+revert will not remove commits, but we can do the changes to correct the wrong commits, history will not be changed. extra commits are added to correct wrong commits
+
+
+Key Differences
+Aspect						git reset		 				git revert
+History Impact				Rewrites history(destructive)	Preserves history (non-destructive)
+New Commit?					No								Yes
+Use Case					Adjust local commits	        Undo changes in a shared branch
+Working on Shared Branch?	Risky (may cause conflicts)	    Safe
+
+When to Use Which?
+Use git reset if you are working locally and haven’t shared the changes yet.
+Use git revert when you need to undo changes in a branch that others are using (e.g., after pushing to a remote).
+
+
+
+
+

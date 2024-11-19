@@ -1,0 +1,53 @@
+how to push images to ECR
+DaemonSet
+ServiceAccount
+K8 arch
+quiz
+
+315069654700.dkr.ecr.us-east-1.amazonaws.com/expense/backend:v1
+
+ReplicaSet
+DeploymentSet
+StatefulSet
+DaemonSet
+
+if you run deamonset, k8 makes sure of a pod runs on each and every node..
+
+3 nodes --> pull the logs from nodes.
+ pod in each node to pull the logs..
+ 
+service accounts --> it is not human user, it is created system purpose.
+
+trainee --> He can create pods, but he cant get the secrets or list the secrets
+
+run the pod with service account, this service account have access to get the secrets
+
+for everynamespace it will create one default sa
+
+Master and Node
+-----------------
+
+master
+-------
+api server --> intercepts every request to k8, checks authorization
+
+scheduler --> schedules the pods on to worker nodes, it checks taints, tolerations, node selectors, affinity, anti affinity, hardware requirements, free CPU and memory
+
+controller
+ replica controller --> make sure always desired number of pods are running
+ node controller --> monitoring the nodes continously
+ job controller --> checks Jobs
+ EndpointSlice controller --> establish connection between services and pods
+ SA controller --> creates default sa for namespaces
+ 
+etcd --> DB for our K8 configuration
+
+node
+--------
+
+kubelet --> agent running inside worker node, to communicate with master
+kube-proxy --> setup networking rules and policies to nodes and pods
+container runtime --> container-d, crio. 
+
+
+add-ons --> VPC CNI, dns, 
