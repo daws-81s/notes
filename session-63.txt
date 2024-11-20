@@ -1,0 +1,97 @@
+cherry pick
+restore
+
+you can pick whatever cherries you want.
+
+When you find something useful in another branches, you can pick those commits instead of completely merge or rebase with that branch
+
+imagine 2 features branches, feature-1 and feature-2. feature-2 finds something useful in feature-1 instead of completely merging with it we can cherrypick the commits we want...
+
+git checkout feature-1
+
+git pull
+
+git checkout feature-2
+
+git log feature-1 --> you can see the commits, select what you want
+git cherry-pick <commit-id> --> this may create conflicts, resolve and push
+
+
+
+special dosa
+--------------
+robert and raheem
+
+restore
+-------------------
+reset vs revert
+
+
+git restore --staging <file-name> --> it will bring the changes from staging area to workspace
+
+git restore --source <file-name> --> can completely restore the file to that particular commit-id. but it will not remove the commit-id
+
+restore works on particular file, reset or revert works on entire workspace..
+
+
+CICD
+----------------------
+Continous Integration --> jenkins
+
+Project Infra
+Deploy applications
+
+It is the way of integrating the code from source and create artifact. in between source and creating artifact we need to install dependencies, run unit test cases, scans, etc. instead of this manually we can automate through continus integration process... We are using Jenkins for CI.
+
+take one server
+--------------
+git clone <url>
+npm install --> downloads dependencies
+npm test --> unit test cases
+sonar-scan
+zip --> zip the application
+
+store the application into some other artifact server
+
+Jenkins is a plain webserver, if you install plugins then jenkins can connect with other tools.
+
+
+sudo curl -o /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo yum upgrade --> takes too much time, we can skip
+# Add required dependencies for the jenkins package
+sudo yum install fontconfig java-17-openjdk
+sudo yum install jenkins
+sudo systemctl daemon-reload
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+
+in jenkins everything is called as job.. when you trigger it is called as build
+
+pre-production shoot post-production
+
+pre-build build post-build
+
+manually created infra vs IaaC
+-------------------------------
+1. you can't restore if something goes wrong
+2. we can track we did the changes.
+3. can't reuse
+4. no review of changes
+5. no version control
+
+if you make it as pipeline and keep it in git
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
