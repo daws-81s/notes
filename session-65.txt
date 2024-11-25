@@ -1,0 +1,18 @@
+application --> CICD mandatory
+infra --> CICD not mandatory for now
+
+apply or destroy
+
+vpc, sg, bastion, rds, eks, acm, alb, cdn, ecr
+
+vpc
+sg
+	bastion
+	rds
+	eks
+	acm
+	ecr
+	cdn
+	
+	alb
+	

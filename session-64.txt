@@ -1,0 +1,38 @@
+Master Agent architecture
+--------------------------
+1 acre
+100 acres --> if you employ few resources
+
+1. employee daily coming and checking with master for work
+2. whenever master gets work, he will allocate to employee
+
+CI servers --> 1 server across project
+
+Java 8 --> agent-java8
+Java 17 --> agaent-java17
+
+sudo yum java-17-openjdk -y
+
+/var/lib/jenkins --> JENKINS_HOME
+
+Groovy syntax --> similar to Java
+
+triggers
+-----------
+whenever developer pushes to git, it should automatically trigger pipeline
+
+webhooks
+
+http://184.73.142.106:8080/github-webhook/ --> / at the end is important
+
+when you select create --> apply
+when you select destroy --> destroy
+
+vpc, sg, bastion, rds, alb ingress, eks, cdn, ecr, 
+
+versions -> read the version and tag docker image with this version
+
+push to ecr
+k8 deployment
+
+
