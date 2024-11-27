@@ -1,0 +1,40 @@
+Scans
+========
+1. static source code analysis
+2. static application security testing
+3. dynamic application security testing --> 1 time for every release
+	veracode --> free trail only with business emails
+4. image scanning through ECR scan
+5. dependencies scan --> Nexu scan, blackduck, Dependabot
+
+
+sonar-6.0
+
+10 functions causing 100 lines code --> if you test this 10 functions then
+
+code coverage is 100%
+
+code coverage should be min 80%
+
+new code
+overall code
+
+Commit1 --> first time code
+Commit2 --> 
+
+overall code = Commit1+Commit2
+New code = C2-C1
+
+0 issues, 0 bugs, security rating A, maintainability rating A, code coverage 80% , code smells 0, vulnerabilities 0
+on overall code and new code
+
+http://jenkins.daws81s.online/sonarqube-webhook/
+
+CI --> trigger CD
+CD
+
+image is our output
+DEV --> use that image, but different config values-dev.yaml
+QA/UAT/PROD --> use the same image, but different config values-prod.yaml
+
+jenkins-shared-library

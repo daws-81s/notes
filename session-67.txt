@@ -1,0 +1,36 @@
+sed editor
+==========
+streamline editor
+
+vim --> only for user, need to open and replace
+
+1s
+2s
+%s/<word-to-find>/<replace-word>/g
+
+sed -
+
+Scanning
+==========
+shifting the security scannings and testing in dev before pushing code to main branch. When developers push code to feature branches we should scan and test
+
+static source code analysis --> SonarQube
+static application security testing --> SonarQube/GitHub
+dynmaic application security testing --> Veracode
+open source librarby scan --> NexusIQ/GitHub
+image scanning --> ECR Scanning
+
+unit testing --> should be done by developers
+functional testing --> testers
+
+function --> 
+brick
+
+login(username, password){
+	query db();
+	checkTheResult();
+}
+
+VM
+Docker install
+docker run -p 
