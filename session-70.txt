@@ -1,0 +1,24 @@
+Shift left
+DevSecOps
+Build once and run anywhere
+Centralised Pipelines
+Branching strategy
+Infra as a code
+Configuration management
+EKS upgrade
+Terraform modules development
+Optimising Docker images
+Using Helm Charts
+Legacy VM applications and Microservices
+
+Project onboarding
+Project maintainance
+Project improvements
+Project changes
+Project upgrades
+
+Pharma
+Retail
+Banking
+Telecom
+Oil and energy

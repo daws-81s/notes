@@ -1,0 +1,80 @@
+1. seperate CI and CD, because we can use CD job to deploy our application to multiple environments
+build once and run anywhere. 
+
+100 commits --> no need to deploy 100 times....worst case 100th time deploy should be there
+
+our pipeline will have an option to choose deploy or not
+backend -> upstream
+backend-deploy --> just helm charts.downstream
+
+1. project
+2. component
+
+multi branch pipeline --> a pipeline should be there for every feature branch to support their development
+
+function(input)
+1. You can call any number of times
+2. it takes input and process something
+
+jenkins-shared-library --> pipeline as a function, it takes input and run the pipeline --> these are called central
+
+any number of projects can call this shared pipelines at a time
+no need to maintain pipelines differently for different project
+easy updates
+enforce standards at the high level
+
+nodeJSEKSPipeline(input) --> by default call function will be called
+
+nodeJSEKSPipeline.function_name()
+
+Central DevOps Engineers
+-----------------------
+Ansible Roles
+Terraform Modules
+Jenkins central pipelines
+
+1. what is the programming language
+2. what is the deployment platform
+3. what is the build tool --> maven and gradle, ant
+
+nodeJSEKSPipeline
+nodeJSVMPipeline
+
+Map/dictionary --> key/value
+
+1. project
+2. component
+3. environment --> by default DEV
+
+Project Onboarding
+---------------------
+1. programming language
+2. deployment platform
+3. branching strategy --> feature branching strategy
+
+SOP --> if any new project comes, we meet development team and setup below things
+Jenkins folders
+SonarQube
+K8 namespace
+ECR repo
+Veracode target
+Github dependabot
+Dockerfile
+Helm charts
+
+CR Process
+=================
+
+
+Multi branch pipeline --> to support multiple branches at a time
+CI CD seperate --> CD can do deployments into different environment including DEV
+
+Jenkins shared library 
+=========================
+pipeline as a function --> accepts input parameters and run the pipeline
+
+nodeJSEKSPipeline
+nodeJSVMPipeline
+pythonEKSPipeline
+pythonVMPipeline
+JavaEKSPipeline
