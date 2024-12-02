@@ -1,0 +1,89 @@
+Monitoring
+================
+Black box testing
+White box testing
+
+Black box testing --> we dont know what is inside --> end users without knowing internal details
+White box testing --> we know what is inside --> internal users can do this
+
+memory
+CPU
+RAM
+Network requests
+
+P0, P1, P2, P3, P4
+
+RCA --> Root cause analysis
+
+Latency --> How fast our system is responding
+Traffic --> How many requests to the system
+Errors --> Monitor for 5XX errors
+Saturation --> Measure system resources
+
+Prometheus
+============
+CCTV --> cameras, central system
+cameras --> agents, collecting the live videos and sending to the central system
+
+time-series database
+====================
+daily expenditure --> date is input
+Quartely, Half Yearly, Anual expenditure, weekly expenditure
+
+
+[Unit]
+Description=Prometheus Server
+
+[Service]
+ExecStart=/opt/prometheus/prometheus --config.file=/opt/prometheus/prometheus.yml
+
+[Install]
+WantedBy=multi-user.target
+
+[Unit]
+Description=Node Exporter
+
+[Service]
+ExecStart=/opt/node_exporter/node_exporter
+
+[Install]
+WantedBy=multi-user.target
+
+
+# my global config
+global:
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: "prometheus"
+
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+
+    static_configs:
+      - targets: ["localhost:9090"]
+
+
+unit testing --> jest, junit, etc...
+npm test
+5 test cases
+4 success, 1 fail
+
+sonar --> testing code, source code, test results
