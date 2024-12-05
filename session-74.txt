@@ -1,0 +1,111 @@
+catalogue
+==========
+[Unit]
+Description = Catalogue Service
+
+[Service]
+User=roboshop
+Environment=MONGO=true
+Environment=MONGO_URL="mongodb://mongodb.daws81s.online:27017/catalogue"
+ExecStart=/bin/node /app/server.js
+SyslogIdentifier=catalogue
+
+[Install]
+WantedBy=multi-user.target
+
+user
+===============
+[Unit]
+Description = User Service
+[Service]
+User=roboshop
+Environment=MONGO=true
+Environment=REDIS_HOST=redis.daws81s.online
+Environment=MONGO_URL="mongodb://mongodb.daws81s.online:27017/users"
+ExecStart=/bin/node /app/server.js
+SyslogIdentifier=user
+
+[Install]
+WantedBy=multi-user.target
+
+cart
+======
+[Unit]
+Description = Cart Service
+[Service]
+User=roboshop
+Environment=REDIS_HOST=redis.daws81s.online
+Environment=CATALOGUE_HOST=catalogue.daws81s.online
+Environment=CATALOGUE_PORT=8080
+ExecStart=/bin/node /app/server.js
+SyslogIdentifier=cart
+
+[Install]
+WantedBy=multi-user.target
+
+shipping
+=========
+[Unit]
+Description=Shipping Service
+
+[Service]
+User=roboshop
+Environment=CART_ENDPOINT=cart.daws81s.online:8080
+Environment=DB_HOST=mysql.daws81s.online
+ExecStart=/bin/java -jar /app/shipping.jar
+SyslogIdentifier=shipping
+
+[Install]
+WantedBy=multi-user.target
+
+payment
+===============
+
+[Unit]
+Description=Payment Service
+
+[Service]
+User=root
+WorkingDirectory=/app
+Environment=CART_HOST=cart.daws81s.online
+Environment=CART_PORT=8080
+Environment=USER_HOST=user.daws81s.online
+Environment=USER_PORT=8080
+Environment=AMQP_HOST=rabbitmq.daws81s.online
+Environment=AMQP_USER=roboshop
+Environment=AMQP_PASS=roboshop123
+
+ExecStart=/usr/local/bin/uwsgi --ini payment.ini
+ExecStop=/bin/kill -9 $MAINPID
+SyslogIdentifier=payment
+
+[Install]
+WantedBy=multi-user.target
+
+dispatch
+=======
+[Unit]
+Description = Dispatch Service
+[Service]
+User=roboshop
+Environment=AMQP_HOST=rabbitmq.daws81s.online
+Environment=AMQP_USER=roboshop
+Environment=AMQP_PASS=roboshop123
+ExecStart=/app/dispatch
+SyslogIdentifier=dispatch
+
+[Install]
+WantedBy=multi-user.target
+
+Infra is ready, but setup needs to be done
+===========================================
+jenkins-shared-library
+
+Jenkins, Jekins agent(nodejs, java, python, docker, kubectl, helm)
+=====================
+pipeline stage view
+aws credentials
+ansicolor
+rebuild
+aws steps
+sonarqube

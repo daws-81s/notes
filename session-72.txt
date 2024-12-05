@@ -1,0 +1,22 @@
+dynamic scrapping
+-------------------
+1. our targets should have node_exporter installed.
+2. prometheus server should have permission to describe ec2 instances
+3. We can filter the instances based on tags, regions, az, etc.
+
+email-smtp.us-east-1.amazonaws.com:587
+
+counter and gauge
+
+KM: 1000
+Speed: 60km/sec
+
+0th --> 0GB
+1st --> 2GB
+2nd --> 5GB
+
+5GB-2GB = 3GB
+
+130GB --> counter reset to 0
+
+CPU --> seconds
